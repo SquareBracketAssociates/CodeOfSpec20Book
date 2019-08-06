@@ -10,6 +10,17 @@ Class {
 	#category : #CodeOfSpec20Book
 }
 
+{ #category : #specs }
+CustomerSatisfactionPresenter class >> defaultSpec [
+	^ SpBoxLayout newVertical 
+		add: (SpBoxLayout newHorizontal
+					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad);
+		"origin: 0 @ 0 corner: 1 @ 0.7;"
+		add:  #screen;
+		"origin: 0 @ 0.7 corner: 1 @ 1;"
+		yourself
+]
+
 { #category : #initialization }
 CustomerSatisfactionPresenter >> initializePresenter [
 
