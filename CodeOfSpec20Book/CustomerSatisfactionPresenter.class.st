@@ -24,15 +24,30 @@ CustomerSatisfactionPresenter class >> defaultSpec [
 { #category : #initialization }
 CustomerSatisfactionPresenter >> initializePresenter [
 
+	self presenterCreation.
+	self presenterConnectionLogic 
+]
+
+{ #category : #initialization }
+CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
+	
+	super initializeWindow: aWindowPresenter.
+	aWindowPresenter
+		title: 'Customer Satisfaction Survey';
+		initialExtent:  400@100
+]
+
+{ #category : #initialization }
+CustomerSatisfactionPresenter >> presenterConnectionLogic [
+
 	buttonHappy action: [ screen label: buttonHappy label ].
 	buttonNeutral action: [ screen label: buttonNeutral label ].
 	buttonBad action: [ screen label: buttonBad label ].
 ]
 
 { #category : #initialization }
-CustomerSatisfactionPresenter >> initializeWidgets [
+CustomerSatisfactionPresenter >> presenterCreation [
 
-	"Presenter creation"
 	screen := self newLabel.
 	buttonHappy := self newButton.
 	buttonNeutral := self newButton.
