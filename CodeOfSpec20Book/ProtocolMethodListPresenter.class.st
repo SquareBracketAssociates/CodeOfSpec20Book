@@ -51,6 +51,12 @@ ProtocolMethodListPresenter >> label: aText [
 	label label: aText
 ]
 
+{ #category : #accessing }
+ProtocolMethodListPresenter >> methods [
+
+	^ methods
+]
+
 { #category : #actions }
 ProtocolMethodListPresenter >> resetSelection [
 	methods resetSelection
