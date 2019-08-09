@@ -29,6 +29,12 @@ CustomerSatisfactionPresenter >> initializePresenter [
 ]
 
 { #category : #initialization }
+CustomerSatisfactionPresenter >> initializeWidgets [
+	
+	 
+]
+
+{ #category : #initialization }
 CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
 	
 	super initializeWindow: aWindowPresenter.
