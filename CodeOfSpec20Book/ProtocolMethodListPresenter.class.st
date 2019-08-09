@@ -59,10 +59,11 @@ ProtocolMethodListPresenter >> methods [
 
 { #category : #actions }
 ProtocolMethodListPresenter >> resetSelection [
-	methods resetSelection
+	methods unselectAll
 ]
 
 { #category : #actions }
 ProtocolMethodListPresenter >> whenSelectedItemChanged: aBlock [
-	methods whenSelectedItemChanged: aBlock
+	methods
+		whenSelectionChangedDo: [ :selection | aBlock cull: selection selectedItem ]
 ]
