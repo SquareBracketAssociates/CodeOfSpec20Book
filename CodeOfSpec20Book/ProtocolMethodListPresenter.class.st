@@ -40,3 +40,23 @@ ProtocolMethodListPresenter >> initializeWidgets [
 ProtocolMethodListPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter title: 'Protocol widget'
 ]
+
+{ #category : #actions }
+ProtocolMethodListPresenter >> items: aCollection [
+	methods items: aCollection
+]
+
+{ #category : #accessing }
+ProtocolMethodListPresenter >> label: aText [
+	label label: aText
+]
+
+{ #category : #actions }
+ProtocolMethodListPresenter >> resetSelection [
+	methods resetSelection
+]
+
+{ #category : #actions }
+ProtocolMethodListPresenter >> whenSelectedItemChanged: aBlock [
+	methods whenSelectedItemChanged: aBlock
+]
