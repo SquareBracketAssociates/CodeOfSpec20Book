@@ -26,3 +26,10 @@ BookScriptTest >> testColors [
 	instance := BookScripts allInstances.
 	self assert: instance items first class equals: Color.
 ]
+
+{ #category : #tests }
+BookScriptTest >> testTriplets [
+	
+	instance := BookScripts triplet.
+	self assert: instance items first class equals: Color.
+]

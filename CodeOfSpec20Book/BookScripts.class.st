@@ -25,3 +25,15 @@ BookScripts class >> colorNames [
 		title: 'Registered color names'.
 	^ registeredColorsList
 ]
+
+{ #category : #scripts }
+BookScripts class >> triplet [
+	| registeredColorsList |
+	registeredColorsList := SpListPresenter new.
+	registeredColorsList
+		items: (Color allInstances sort: #hue ascending);
+		displayBlock: [ :it | it rgbTriplet  ].
+	(registeredColorsList openWithSpec)
+		title: 'Registered colors as triplets'.
+	^ registeredColorsList
+]
