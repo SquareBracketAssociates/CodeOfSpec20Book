@@ -92,3 +92,18 @@ ProtocolViewerPresenter >> presenterCreation [
 
 	self focusOrder add: models; add: api; add: events.
 ]
+
+{ #category : #action }
+ProtocolViewerPresenter >> whenAPIChanged: aBlock [
+	api whenSelectedItemChanged: aBlock
+]
+
+{ #category : #action }
+ProtocolViewerPresenter >> whenClassChanged: aBlock [
+	models whenSelectedItemChanged: aBlock
+]
+
+{ #category : #action }
+ProtocolViewerPresenter >> whenEventChanged: aBlock [
+	events whenSelectedItemChanged: aBlock
+]
