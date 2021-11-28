@@ -1,7 +1,13 @@
 "
+I'm the core of the logic to have a presenter using a model and that reacts to model changes.
+
+
+Here is how to get the example.
 ```
 (SpMethodListerWithModel on: Point) openWithSpec
 ```
+
+The following code snippet shows that the sub presenters get updated after model changes.
 
 ```
 	| lister | 

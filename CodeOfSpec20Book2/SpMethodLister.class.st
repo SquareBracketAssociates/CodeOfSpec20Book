@@ -1,5 +1,11 @@
 "
+I'm the core of the way how to build a presenter whose sub presenters are initialized based on a model (external object passed as argument). 
+
+In contrast with `SpMethodListerWithModel` I do not handle change of model (my sub presenters are not automatically updated). 
+
+```
 (SpMethodLister on: Point) openWithSpec
+```
 "
 Class {
 	#name : #SpMethodLister,
