@@ -7,52 +7,45 @@ Class {
 		'buttonBad',
 		'screen'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-Customer'
 }
 
-{ #category : #specs }
+{ #category : #examples }
 CustomerSatisfactionPresenter class >> defaultSpec [
-	^ SpBoxLayout newVertical 
-		add: (SpBoxLayout newHorizontal
-					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad);
-		"origin: 0 @ 0 corner: 1 @ 0.7;"
+	^ SpBoxLayout newTopToBottom  
+		add: (SpBoxLayout newLeftToRight 
+					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
 		add:  #screen;
-		"origin: 0 @ 0.7 corner: 1 @ 1;"
 		yourself
 ]
 
-{ #category : #initialization }
-CustomerSatisfactionPresenter >> initializePresenter [
-
-	self presenterCreation.
-	self presenterConnectionLogic 
-]
-
-{ #category : #initialization }
-CustomerSatisfactionPresenter >> initializeWidgets [
+{ #category : #examples }
+CustomerSatisfactionPresenter class >> example [
+	<example>
 	
-	 
+	^ self new openWithSpec
 ]
 
 { #category : #initialization }
-CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
+CustomerSatisfactionPresenter >> connectPresenters [ 
+	"note that the actions could also be part of the initializePresenters method"
 	
-	super initializeWindow: aWindowPresenter.
-	aWindowPresenter
-		title: 'Customer Satisfaction Survey';
-		initialExtent:  400@100
-]
-
-{ #category : #initialization }
-CustomerSatisfactionPresenter >> presenterConnectionLogic [
-
 	buttonHappy action: [ screen label: buttonHappy label ].
 	buttonNeutral action: [ screen label: buttonNeutral label ].
 	buttonBad action: [ screen label: buttonBad label ].
 ]
 
 { #category : #initialization }
-CustomerSatisfactionPresenter >> presenterCreation [
+CustomerSatisfactionPresenter >> defaultSpec [
+	^ SpBoxLayout newTopToBottom  
+		add: (SpBoxLayout newLeftToRight 
+					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
+		add:  #screen;
+		yourself
+]
+
+{ #category : #initialization }
+CustomerSatisfactionPresenter >> initializePresenters [
 
 	screen := self newLabel.
 	buttonHappy := self newButton.
@@ -75,4 +68,21 @@ CustomerSatisfactionPresenter >> presenterCreation [
 		add: buttonHappy;
 		add: buttonNeutral;
 		add: buttonBad
+]
+
+{ #category : #initialization }
+CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
+	
+	super initializeWindow: aWindowPresenter.
+	aWindowPresenter
+		title: 'Customer Satisfaction Survey';
+		initialExtent:  400@100
+]
+
+{ #category : #initialization }
+CustomerSatisfactionPresenter >> presenterConnectionLogic [
+
+	buttonHappy action: [ screen label: buttonHappy label ].
+	buttonNeutral action: [ screen label: buttonNeutral label ].
+	buttonBad action: [ screen label: buttonBad label ].
 ]

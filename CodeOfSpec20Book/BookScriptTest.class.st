@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'instance'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-Scripts'
 }
 
 { #category : #tests }

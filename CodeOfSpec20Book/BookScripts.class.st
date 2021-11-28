@@ -1,7 +1,7 @@
 Class {
 	#name : #BookScripts,
 	#superclass : #Object,
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-Scripts'
 }
 
 { #category : #scripts }

@@ -1,7 +1,7 @@
 Class {
 	#name : #ProtocolMethodListPresenterTest,
 	#superclass : #TestCase,
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
 { #category : #tests }

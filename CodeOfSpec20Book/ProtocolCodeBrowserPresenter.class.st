@@ -1,3 +1,6 @@
+"
+Should be revisited
+"
 Class {
 	#name : #ProtocolCodeBrowserPresenter,
 	#superclass : #SpPresenter,
@@ -5,7 +8,7 @@ Class {
 		'text',
 		'viewer'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
 { #category : #specs }
@@ -27,23 +30,8 @@ ProtocolCodeBrowserPresenter class >> defaultSpec [
 ]
 
 { #category : #initialization }
-ProtocolCodeBrowserPresenter >> initializePresenter [
-	self presenterCreation.
-	self presenterConnection
-]
+ProtocolCodeBrowserPresenter >> connectPresenters [
 
-{ #category : #initialization }
-ProtocolCodeBrowserPresenter >> initializeWidgets [ 
-	""
-]
-
-{ #category : #initialization }
-ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
-	aWindowPresenter title: 'Spec Protocol Browser'
-]
-
-{ #category : #initialization }
-ProtocolCodeBrowserPresenter >> presenterConnection [
 	viewer whenClassChanged: [ :class | text behavior: class ].
 	viewer whenAPIChanged: [ :item |
 		item
@@ -54,11 +42,16 @@ ProtocolCodeBrowserPresenter >> presenterConnection [
 ]
 
 { #category : #initialization }
-ProtocolCodeBrowserPresenter >> presenterCreation [
+ProtocolCodeBrowserPresenter >> initializePresenters [
 	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter.
 	text syntaxHighlight: true.
 	self focusOrder
 		add: viewer;
 		add: text
+]
+
+{ #category : #initialization }
+ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
+	aWindowPresenter title: 'Spec Protocol Browser'
 ]

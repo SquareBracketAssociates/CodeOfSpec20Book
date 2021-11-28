@@ -1,10 +1,13 @@
+"
+should be revisited
+"
 Class {
 	#name : #WidgetClassListPresenter,
 	#superclass : #SpPresenter,
 	#instVars : [
 		'list'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
 { #category : #specs }
@@ -21,16 +24,11 @@ WidgetClassListPresenter class >> example [
 ]
 
 { #category : #initialization }
-WidgetClassListPresenter >> initializePresenter [
+WidgetClassListPresenter >> initializePresenters [
 	list := self newList.
 	list items: (SpAbstractWidgetPresenter allSubclasses
 		 							 sorted: [:a :b | a name < b name ]).
 	self focusOrder add: list.
-]
-
-{ #category : #initialization }
-WidgetClassListPresenter >> initializeWidgets [
-	
 ]
 
 { #category : #initialization }

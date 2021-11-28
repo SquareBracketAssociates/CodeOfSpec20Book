@@ -1,3 +1,6 @@
+"
+should be revisited
+"
 Class {
 	#name : #ProtocolViewerPresenter,
 	#superclass : #SpPresenter,
@@ -6,7 +9,7 @@ Class {
 		'api',
 		'events'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
 { #category : #specs }
@@ -28,43 +31,20 @@ ProtocolViewerPresenter class >> exampleHorizontal [
 
 { #category : #specs }
 ProtocolViewerPresenter class >> horizontalSpec [
-	^ SpBoxLayout newHorizontal
+	^ SpBoxLayout newLeftToRight 
 			add: #models; add: #api; add: #events;
 			yourself
 ]
 
 { #category : #specs }
 ProtocolViewerPresenter class >> verticalSpec [
-	^ SpBoxLayout newVertical
+	^ SpBoxLayout newTopToBottom 
 			add: #models; add: #api; add: #events;
 			yourself
 ]
 
 { #category : #initialization }
-ProtocolViewerPresenter >> initializePresenter [
-	self presenterCreation.
-	self presenterConnectionLogic 
-]
-
-{ #category : #initialization }
-ProtocolViewerPresenter >> initializeWidgets [
-	
-	self
-]
-
-{ #category : #initialization }
-ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
-	aWindowPresenter title: 'Protocol viewer'
-]
-
-{ #category : #helpers }
-ProtocolViewerPresenter >> methodsIn: class for: protocol [
-	^ (class methodsInProtocol: protocol) sorted:
-	  		 [ :a :b | a selector < b selector ].
-]
-
-{ #category : #initialization }
-ProtocolViewerPresenter >> presenterConnectionLogic [
+ProtocolViewerPresenter >> connectPresenters [
 
 	models whenSelectedItemChanged: [ :class |
 		api resetSelection.
@@ -82,7 +62,7 @@ ProtocolViewerPresenter >> presenterConnectionLogic [
 ]
 
 { #category : #initialization }
-ProtocolViewerPresenter >> presenterCreation [
+ProtocolViewerPresenter >> initializePresenters [
 	models := self instantiate: WidgetClassListPresenter.
 	api := self instantiate: ProtocolMethodListPresenter.
 	events := self instantiate: ProtocolMethodListPresenter.
@@ -91,6 +71,17 @@ ProtocolViewerPresenter >> presenterCreation [
 	events label: 'api-events'.
 
 	self focusOrder add: models; add: api; add: events.
+]
+
+{ #category : #initialization }
+ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
+	aWindowPresenter title: 'Protocol viewer'
+]
+
+{ #category : #helpers }
+ProtocolViewerPresenter >> methodsIn: class for: protocol [
+	^ (class methodsInProtocol: protocol) sorted:
+	  		 [ :a :b | a selector < b selector ].
 ]
 
 { #category : #action }

@@ -1,3 +1,6 @@
+"
+Not fully working
+"
 Class {
 	#name : #ProtocolMethodListPresenter,
 	#superclass : #SpPresenter,
@@ -5,12 +8,12 @@ Class {
 		'label',
 		'methods'
 	],
-	#category : #CodeOfSpec20Book
+	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
 { #category : #specs }
 ProtocolMethodListPresenter class >> defaultSpec [
-	^ SpBoxLayout newVertical
+	^ SpBoxLayout newTopToBottom 
 			add: #label  withConstraints: [:c | c expand: false];
 			add: #methods withConstraints: [:c | c fill: true];
 			yourself
@@ -22,18 +25,12 @@ ProtocolMethodListPresenter class >> example [
 ]
 
 { #category : #initialization }
-ProtocolMethodListPresenter >> initializePresenter [
+ProtocolMethodListPresenter >> initializePresenters [
 	methods := self newList.
-	methods displayBlock: [ :m | m selector ].
+	methods display: [ :m | m selector ].
 	label :=  self newLabel.
 	label label: 'Protocol'.
 	self focusOrder add: methods.
-]
-
-{ #category : #initialization }
-ProtocolMethodListPresenter >> initializeWidgets [
-	
-	
 ]
 
 { #category : #initialization }
