@@ -6,6 +6,12 @@ we openWithSpec.
 we openWithSpec: #defaultSpec.
 we openWithSpecLayout: we defaultSpec
 ```
+
+```
+| wewin |
+wewin := WindowExamplePresenter new openWithSpec.
+wewin window beUnresizeable
+```
 "
 Class {
 	#name : #WindowExamplePresenter,
