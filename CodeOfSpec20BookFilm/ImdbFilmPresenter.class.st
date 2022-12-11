@@ -13,18 +13,20 @@ Class {
 	#instVars : [
 		'nameText',
 		'directorText',
-		'yearNumber'
+		'yearNumber',
+		'nameLabel'
 	],
 	#category : #CodeOfSpec20BookFilm
 }
 
 { #category : #layout }
 ImdbFilmPresenter >> defaultLayout [
+	
 	^ SpGridLayout build: [ :builder |
 		builder
 			beColumnNotHomogeneous;
 			column:2 withConstraints: #beExpand;
-			add: 'Name'; add: nameText; nextRow;
+			add: nameLabel; add: nameText; nextRow;
 			add: 'Director'; add: directorText; nextRow;
 			add: 'Year'; add: yearNumber ]
 ]
@@ -56,12 +58,16 @@ ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 ]
 
 { #category : #initialization }
-ImdbFilmPresenter >> initializePresenters [
-       nameText := self newTextInput.
-       directorText := self newTextInput.
-       yearNumber := self newNumberInput
-          rangeMinimum: 1900 maximum: Year current year;
-          yourself.
+ImdbFilmPresenter >> initializePresenters [ 
+	nameLabel := self newLabel 
+		label: 'Name'; 
+		addStyle: 'customLabel'; 
+		yourself.
+	nameText := self newTextInput.
+	directorText := self newTextInput.
+	yearNumber := self newNumberInput 
+			rangeMinimum: 1900 maximum: Year current year;
+			yourself.
 ]
 
 { #category : #window }

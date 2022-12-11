@@ -59,8 +59,14 @@ ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [
 
 { #category : #initialization }
 ImdbFilmListPresenter >> connectPresenters [
-
-	filmList transmitTo: detail
+	"Do not get why the ports are not workingCopies 
+	
+		filmList transmitTo: detail
+		
+	"
+	filmList whenSelectionChangedDo: [ :selectedItemMode | 
+		selectedItemMode isEmpty ifFalse: [ 
+			detail setModel: selectedItemMode selectedItem ] ]
 ]
 
 { #category : #ports }
