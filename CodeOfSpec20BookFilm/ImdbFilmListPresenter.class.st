@@ -6,15 +6,33 @@ I'm a little film list presenter.
 app := ImdbApp new. 
 (app newPresenter: ImdbFilmListPresenter) open.
 ```
+
+```
+| app presenter |
+app := ImdbApp new. 
+presenter := app newPresenter: ImdbFilmListPresenter.
+presenter openWithLayout: presenter listAboveLayout.
+```
 "
 Class {
 	#name : #ImdbFilmListPresenter,
 	#superclass : #SpPresenter,
 	#instVars : [
-		'filmList'
+		'filmList',
+		'detail'
 	],
 	#category : #CodeOfSpec20BookFilm
 }
+
+{ #category : #examples }
+ImdbFilmListPresenter class >> example [
+	<script>
+	
+	| app presenter |
+app := ImdbApp new. 
+presenter := app newPresenter: ImdbFilmListPresenter.
+presenter openWithLayout: presenter listAboveLayout.
+]
 
 { #category : #adding }
 ImdbFilmListPresenter >> addFilm [
@@ -34,22 +52,56 @@ ImdbFilmListPresenter >> addFilm [
 	
 ]
 
+{ #category : #'testing support' }
+ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [ 
+	filmList clickAtIndex: anIndex
+]
+
+{ #category : #initialization }
+ImdbFilmListPresenter >> connectPresenters [
+
+	filmList transmitTo: detail
+]
+
+{ #category : #ports }
+ImdbFilmListPresenter >> defaultInputPort [
+	^ self inputModelPort
+]
+
 { #category : #layout }
 ImdbFilmListPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
 		  add: filmList;
+		   add: detail;
 		  yourself
+]
+
+{ #category : #'testing support' }
+ImdbFilmListPresenter >> detail [
+	^ detail
+]
+
+{ #category : #'testing support' }
+ImdbFilmListPresenter >> filmList [
+	^ filmList
 ]
 
 { #category : #initialization }
 ImdbFilmListPresenter >> initializePresenters [
 
 	filmList := self newTable
-		addColumn: (SpStringTableColumn title: 'Name' evaluated: #name);
-		addColumn: (SpStringTableColumn title: 'Director' evaluated: #director);
-		addColumn: (SpStringTableColumn title: 'Year' evaluated: #year);
-		yourself.
+		            addColumn:
+			            (SpStringTableColumn title: 'Name' evaluated: #name);
+		            addColumn:
+			            (SpStringTableColumn
+				             title: 'Director'
+				             evaluated: #director);
+		            addColumn:
+			            (SpStringTableColumn title: 'Year' evaluated: #year);
+		            yourself.
+	detail := self instantiate: ImdbFilmPresenter.
+	detail enabled: false.
 ]
 
 { #category : #initialization }
@@ -65,6 +117,28 @@ ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 							action: [ self addFilm ];
 							yourself);
 						yourself)
+]
+
+{ #category : #ports }
+ImdbFilmListPresenter >> inputModelPort [
+	^ SpModelPort newPresenter: self
+]
+
+{ #category : #layout }
+ImdbFilmListPresenter >> listAboveLayout [
+
+	^ SpBoxLayout newTopToBottom
+		add: detail;
+		add: filmList; 
+		yourself
+]
+
+{ #category : #layout }
+ImdbFilmListPresenter >> listOnlyLayout [ 
+
+	^ SpBoxLayout newTopToBottom
+		add: filmList; 
+		yourself
 ]
 
 { #category : #initialization }

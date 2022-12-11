@@ -12,6 +12,20 @@ Class {
 	#category : #CodeOfSpec20BookFilm
 }
 
+{ #category : #initialization }
+ImdbFilm class >> ET [
+	^ self new 
+		name: 'E.T.';
+		director: 'Steven Spielberg';
+		year: '1982'; 
+		yourself
+]
+
+{ #category : #initialization }
+ImdbFilm class >> addET [
+	films add: self ET
+]
+
 { #category : #accessing }
 ImdbFilm class >> addFilm: aFilm [
 	films add: aFilm
@@ -22,6 +36,11 @@ ImdbFilm class >> addFilm: aFilm [
 ImdbFilm class >> films [
        ^ films ifNil: [ films := OrderedCollection new ]
 
+]
+
+{ #category : #initialization }
+ImdbFilm class >> reset [ 
+	films := OrderedCollection new
 ]
 
 { #category : #accessing }

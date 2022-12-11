@@ -88,6 +88,13 @@ ImdbFilmPresenter >> nameText: anObject [
 	nameText := anObject
 ]
 
+{ #category : #model }
+ImdbFilmPresenter >> setModel: aFilm [
+        nameText text: aFilm name.
+        directorText text: aFilm director.
+        yearNumber number: aFilm year.
+]
+
 { #category : #accessing }
 ImdbFilmPresenter >> yearNumber [
        ^ yearNumber text
