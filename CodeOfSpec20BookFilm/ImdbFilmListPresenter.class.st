@@ -34,6 +34,16 @@ presenter := app newPresenter: ImdbFilmListPresenter.
 presenter openWithLayout: presenter listAboveLayout.
 ]
 
+{ #category : #examples }
+ImdbFilmListPresenter class >> example1 [
+	<script>
+	| app presenter |
+	
+	app := ImdbApp new. 
+	presenter := app newPresenter: ImdbFilmListPresenter.
+	presenter open
+]
+
 { #category : #adding }
 ImdbFilmListPresenter >> addFilm [
         | dialog windowPresenter |
@@ -79,7 +89,7 @@ ImdbFilmListPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
 		  add: filmList;
-		   add: detail;
+		  add: detail;
 		  yourself
 ]
 
