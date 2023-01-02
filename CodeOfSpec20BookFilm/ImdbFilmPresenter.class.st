@@ -48,6 +48,14 @@ ImdbFilmPresenter >> directorText: anObject [
 	directorText := anObject
 ]
 
+{ #category : #accessing }
+ImdbFilmPresenter >> editable: aBoolean [
+
+	nameText editable: aBoolean.
+	directorText editable: aBoolean.
+	yearNumber editable: aBoolean
+]
+
 { #category : #window }
 ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 
