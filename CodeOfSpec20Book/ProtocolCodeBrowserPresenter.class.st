@@ -1,5 +1,9 @@
 "
-Should be revisited
+A specialized code browser reusing different presenters
+
+```
+ProtocolCodeBrowserPresenter new open
+```
 "
 Class {
 	#name : #ProtocolCodeBrowserPresenter,
@@ -11,34 +15,25 @@ Class {
 	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
-{ #category : #specs }
-ProtocolCodeBrowserPresenter class >> defaultSpec [
-	"self new openWithSpec"
-	
-	^ SpBoxLayout newVertical 
-			add: 
-			 (SpBoxLayout newHorizontal  
-					add: #viewer;
-					add: #models;
-					add: (SpBoxLayout newVertical
-								add: (SpBoxLayout newHorizontal add: #viewer ; add: #api; yourself);
-								add: (SpBoxLayout newHorizontal add: #viewer ; add: #events; yourself);
-								yourself);
-					add: #text;
-					yourself);
-				yourself
-]
-
 { #category : #initialization }
 ProtocolCodeBrowserPresenter >> connectPresenters [
 
-	viewer whenClassChanged: [ :class | text behavior: class ].
-	viewer whenAPIChanged: [ :item |
-		item
-			ifNotNil: [ text text: item sourceCode ] ].
-	viewer whenEventChanged: [ :item |
-		item
-			ifNotNil: [ text text: item sourceCode ] ]
+	viewer whenSelectionInClassChanged: [ :selection | text behavior: selection selectedItem ].
+	viewer whenSelectionInAPIChanged: [ :selection |
+		selection selectedItem
+			ifNotNil: [ :item | text text: item sourceCode ] ].
+	viewer whenSelectionInEventChanged: [ :selection |
+		selection selectedItem
+			ifNotNil: [ :item | text text: item sourceCode ] ]
+]
+
+{ #category : #initialization }
+ProtocolCodeBrowserPresenter >> defaultLayout [
+	
+	^ SpBoxLayout newTopToBottom
+			add: (SpBoxLayout newHorizontal add: #viewer ; yourself);
+			add: #text;
+			yourself
 ]
 
 { #category : #initialization }

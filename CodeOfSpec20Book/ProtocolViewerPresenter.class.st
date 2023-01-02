@@ -24,12 +24,6 @@ ProtocolViewerPresenter class >> example [
 ]
 
 { #category : #specs }
-ProtocolViewerPresenter class >> exampleHorizontal [
-	
-	self new open: #horizontalSpec
-]
-
-{ #category : #specs }
 ProtocolViewerPresenter class >> horizontalLayout [
 	^ SpBoxLayout newLeftToRight 
 			add: #models; 
@@ -61,7 +55,7 @@ ProtocolViewerPresenter >> connectPresenters [
 				events items: #() ]
 			ifNotNil: [
 				api items: (self methodsIn: class for: 'api').
-				events items: (self methodsIn: class for: 'api-events') ] ].
+				events items: (self methodsIn: class for: 'api - events') ] ].
 
 	api whenSelectionChangedDo: [ :selection |
  		selection selectedItem ifNotNil: [ events resetSelection ] ].
@@ -69,9 +63,14 @@ ProtocolViewerPresenter >> connectPresenters [
 		selection selectedItem ifNotNil: [ api resetSelection ] ].
 ]
 
-{ #category : #initialization }
+{ #category : #layouts }
 ProtocolViewerPresenter >> defaultLayout [
-	^ SpBoxLayout newTopToBottom
+	^ self verticalLayout
+]
+
+{ #category : #layouts }
+ProtocolViewerPresenter >> horizontalLayout [
+	^ SpBoxLayout newLeftToRight 
 			add: #models; 
 			add: #api; 
 			add: #events;
@@ -88,7 +87,10 @@ ProtocolViewerPresenter >> initializePresenters [
 	api label: 'api'.
 	events label: 'api-events'.
 
-	self focusOrder add: models; add: api; add: events.
+	self focusOrder 
+		add: models; 
+		add: api; 
+		add: events
 ]
 
 { #category : #initialization }
@@ -98,21 +100,29 @@ ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
 
 { #category : #helpers }
 ProtocolViewerPresenter >> methodsIn: class for: protocol [
-	^ (class methodsInProtocol: protocol) sorted:
-	  		 [ :a :b | a selector < b selector ].
+	^ (class methodsInProtocol: protocol) sorted: [ :a :b | a selector < b selector ]
+]
+
+{ #category : #layouts }
+ProtocolViewerPresenter >> verticalLayout [
+	^ SpBoxLayout newTopToBottom 
+			add: #models; 
+			add: #api; 
+			add: #events;
+			yourself
 ]
 
 { #category : #action }
-ProtocolViewerPresenter >> whenAPIChanged: aBlock [
+ProtocolViewerPresenter >> whenSelectionInAPIChanged: aBlock [
 	api whenSelectionChangedDo: aBlock
 ]
 
 { #category : #action }
-ProtocolViewerPresenter >> whenClassChanged: aBlock [
+ProtocolViewerPresenter >> whenSelectionInClassChanged: aBlock [
 	models whenSelectionChangedDo: aBlock
 ]
 
 { #category : #action }
-ProtocolViewerPresenter >> whenEventChanged: aBlock [
+ProtocolViewerPresenter >> whenSelectionInEventChanged: aBlock [
 	events whenSelectionChangedDo: aBlock
 ]
