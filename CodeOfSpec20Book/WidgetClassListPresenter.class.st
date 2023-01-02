@@ -42,6 +42,6 @@ WidgetClassListPresenter >> initializeWindow: aWindowPresenter [
 ]
 
 { #category : #actions }
-WidgetClassListPresenter >> whenSelectedItemChanged: aBlock [
-	list whenSelectedItemChanged: aBlock
+WidgetClassListPresenter >> whenSelectionChangedDo: aBlock [
+	list whenSelectionChangedDo: aBlock
 ]

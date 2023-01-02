@@ -1,5 +1,5 @@
 "
-should be revisited
+`ProtocolViewerPresenter new open` at least!
 "
 Class {
 	#name : #ProtocolViewerPresenter,
@@ -13,56 +13,74 @@ Class {
 }
 
 { #category : #specs }
-ProtocolViewerPresenter class >> defaultSpec [
-	^ self verticalSpec
+ProtocolViewerPresenter class >> defaultLayout [
+	^ self verticalLayout
 ]
 
 { #category : #specs }
 ProtocolViewerPresenter class >> example [
 
-	self new openWithSpec
+	self new open
 ]
 
 { #category : #specs }
 ProtocolViewerPresenter class >> exampleHorizontal [
 	
-	self new openWithSpec: #horizontalSpec
+	self new open: #horizontalSpec
 ]
 
 { #category : #specs }
-ProtocolViewerPresenter class >> horizontalSpec [
+ProtocolViewerPresenter class >> horizontalLayout [
 	^ SpBoxLayout newLeftToRight 
-			add: #models; add: #api; add: #events;
+			add: #models; 
+			add: #api; 
+			add: #events;
 			yourself
 ]
 
 { #category : #specs }
-ProtocolViewerPresenter class >> verticalSpec [
+ProtocolViewerPresenter class >> verticalLayout [
 	^ SpBoxLayout newTopToBottom 
-			add: #models; add: #api; add: #events;
+			add: #models; 
+			add: #api; 
+			add: #events;
 			yourself
 ]
 
 { #category : #initialization }
 ProtocolViewerPresenter >> connectPresenters [
 
-	models whenSelectedItemChanged: [ :class |
+	models whenSelectionChangedDo: [ :selection |
+		| class |
 		api resetSelection.
 		events resetSelection.
+		class := selection selectedItem.
 		class
-			ifNil: [ api items: #(). events items: #() ]
+			ifNil: [ 
+				api items: #(). 
+				events items: #() ]
 			ifNotNil: [
 				api items: (self methodsIn: class for: 'api').
 				events items: (self methodsIn: class for: 'api-events') ] ].
 
-	api whenSelectedItemChanged: [ :method |
- 		method ifNotNil: [ events resetSelection ] ].
-	events whenSelectedItemChanged: [ :method |
-		method ifNotNil: [ api resetSelection ] ].
+	api whenSelectionChangedDo: [ :selection |
+ 		selection selectedItem ifNotNil: [ events resetSelection ] ].
+	events whenSelectionChangedDo: [ :selection |
+		selection selectedItem ifNotNil: [ api resetSelection ] ].
+]
+
+{ #category : #initialization }
+ProtocolViewerPresenter >> defaultLayout [
+	^ SpBoxLayout newTopToBottom
+			add: #models; 
+			add: #api; 
+			add: #events;
+			yourself
 ]
 
 { #category : #initialization }
 ProtocolViewerPresenter >> initializePresenters [
+
 	models := self instantiate: WidgetClassListPresenter.
 	api := self instantiate: ProtocolMethodListPresenter.
 	events := self instantiate: ProtocolMethodListPresenter.
@@ -86,15 +104,15 @@ ProtocolViewerPresenter >> methodsIn: class for: protocol [
 
 { #category : #action }
 ProtocolViewerPresenter >> whenAPIChanged: aBlock [
-	api whenSelectedItemChanged: aBlock
+	api whenSelectionChangedDo: aBlock
 ]
 
 { #category : #action }
 ProtocolViewerPresenter >> whenClassChanged: aBlock [
-	models whenSelectedItemChanged: aBlock
+	models whenSelectionChangedDo: aBlock
 ]
 
 { #category : #action }
 ProtocolViewerPresenter >> whenEventChanged: aBlock [
-	events whenSelectedItemChanged: aBlock
+	events whenSelectionChangedDo: aBlock
 ]

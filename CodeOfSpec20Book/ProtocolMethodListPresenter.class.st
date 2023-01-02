@@ -12,13 +12,14 @@ Class {
 }
 
 { #category : #examples }
-ProtocolMethodListPresenter class >> example [ 
-	self new openWithSpec
+ProtocolMethodListPresenter class >> example [
+	<script>
+	self new open
 ]
 
 { #category : #initialization }
 ProtocolMethodListPresenter >> defaultLayout [
-	^ SpBoxLayout newTopToBottom 
+	^ SpBoxLayout newTopToBottom
 			add: #label  withConstraints: [:c | c expand: false];
 			add: #methods withConstraints: [:c | c fill: true];
 			yourself
@@ -30,7 +31,7 @@ ProtocolMethodListPresenter >> initializePresenters [
 	methods display: [ :m | m selector ].
 	label :=  self newLabel.
 	label label: 'Protocol'.
-	self focusOrder add: methods.
+	self focusOrder add: methods
 ]
 
 { #category : #initialization }
@@ -56,10 +57,10 @@ ProtocolMethodListPresenter >> methods [
 
 { #category : #actions }
 ProtocolMethodListPresenter >> resetSelection [
-	methods resetSelection
+	methods selection unselectAll
 ]
 
 { #category : #actions }
-ProtocolMethodListPresenter >> whenSelectedItemChanged: aBlock [
-	methods whenSelectedItemChanged: aBlock
+ProtocolMethodListPresenter >> whenSelectionChangedDo: aBlock [
+	methods whenSelectionChangedDo: aBlock
 ]
