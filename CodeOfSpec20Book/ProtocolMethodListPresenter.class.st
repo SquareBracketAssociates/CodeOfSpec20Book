@@ -1,5 +1,5 @@
 "
-Not fully working
+`ProtocolMethodListPresenter new open`
 "
 Class {
 	#name : #ProtocolMethodListPresenter,
@@ -11,17 +11,17 @@ Class {
 	#category : #'CodeOfSpec20Book-MiniClassBrowser'
 }
 
-{ #category : #specs }
-ProtocolMethodListPresenter class >> defaultSpec [
+{ #category : #examples }
+ProtocolMethodListPresenter class >> example [ 
+	self new openWithSpec
+]
+
+{ #category : #initialization }
+ProtocolMethodListPresenter >> defaultLayout [
 	^ SpBoxLayout newTopToBottom 
 			add: #label  withConstraints: [:c | c expand: false];
 			add: #methods withConstraints: [:c | c fill: true];
 			yourself
-]
-
-{ #category : #examples }
-ProtocolMethodListPresenter class >> example [ 
-	self new openWithSpec
 ]
 
 { #category : #initialization }
@@ -56,11 +56,10 @@ ProtocolMethodListPresenter >> methods [
 
 { #category : #actions }
 ProtocolMethodListPresenter >> resetSelection [
-	methods unselectAll
+	methods resetSelection
 ]
 
 { #category : #actions }
 ProtocolMethodListPresenter >> whenSelectedItemChanged: aBlock [
-	methods
-		whenSelectionChangedDo: [ :selection | aBlock cull: selection selectedItem ]
+	methods whenSelectedItemChanged: aBlock
 ]

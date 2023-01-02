@@ -1,5 +1,10 @@
 "
-should be revisited
+A simple widget to display a list of classes
+
+
+```
+WidgetClassListPresenter new open
+```
 "
 Class {
 	#name : #WidgetClassListPresenter,
@@ -11,16 +16,16 @@ Class {
 }
 
 { #category : #specs }
-WidgetClassListPresenter class >> defaultSpec [
-	^ SpBoxLayout newHorizontal
-		add: #list;
-		yourself
+WidgetClassListPresenter class >> example [
+	<script>
+	self new open
 ]
 
-{ #category : #specs }
-WidgetClassListPresenter class >> example [
-
-	self new openWithSpec
+{ #category : #initialization }
+WidgetClassListPresenter >> defaultLayout [
+	^ SpBoxLayout newLeftToRight 
+		add: #list;
+		yourself
 ]
 
 { #category : #initialization }
@@ -38,6 +43,5 @@ WidgetClassListPresenter >> initializeWindow: aWindowPresenter [
 
 { #category : #actions }
 WidgetClassListPresenter >> whenSelectedItemChanged: aBlock [
-	list
-		whenSelectionChangedDo: [ :selection | aBlock cull: selection selectedItem ]
+	list whenSelectedItemChanged: aBlock
 ]
