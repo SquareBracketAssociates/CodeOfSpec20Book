@@ -39,6 +39,16 @@ ProtocolCodeBrowserPresenter >> defaultLayout [
 { #category : #initialization }
 ProtocolCodeBrowserPresenter >> initializePresenters [
 	text := self instantiate: SpCodePresenter.
+	viewer := self instantiate: ProtocolViewerPresenter with: ProtocolViewerPresenter horizontalLayout.
+	text syntaxHighlight: true.
+	self focusOrder
+		add: viewer;
+		add: text
+]
+
+{ #category : #initialization }
+ProtocolCodeBrowserPresenter >> initializePresenters2 [
+	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter.
 	text syntaxHighlight: true.
 	self focusOrder

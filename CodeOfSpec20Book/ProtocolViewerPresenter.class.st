@@ -70,11 +70,7 @@ ProtocolViewerPresenter >> defaultLayout [
 
 { #category : #layouts }
 ProtocolViewerPresenter >> horizontalLayout [
-	^ SpBoxLayout newLeftToRight 
-			add: #models; 
-			add: #api; 
-			add: #events;
-			yourself
+	^ self class horizontalLayout
 ]
 
 { #category : #initialization }
@@ -105,11 +101,7 @@ ProtocolViewerPresenter >> methodsIn: class for: protocol [
 
 { #category : #layouts }
 ProtocolViewerPresenter >> verticalLayout [
-	^ SpBoxLayout newTopToBottom 
-			add: #models; 
-			add: #api; 
-			add: #events;
-			yourself
+	^ self class verticalLayout 
 ]
 
 { #category : #action }
