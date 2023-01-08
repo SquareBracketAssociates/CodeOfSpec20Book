@@ -1,6 +1,6 @@
 "
 ```
-SpTodoApplication new run.
+TodoApplication new run.
 ```
 "
 Class {
@@ -24,7 +24,13 @@ TodoListPresenter >> initializePresenters [
 	todoListPresenter := self newTable
 		                     addColumn:
 			                     ((SpCheckBoxTableColumn evaluated: [ :task |
-					                       task isDone ]) width: 20);
+					                       task isDone ]) width: 20;
+											onActivation: [ :task | task done: true ];
+											onDeactivation: [ :task | task done: false ];
+											yourself
+				
+				
+				);
 		                     addColumn:
 			                     (SpStringTableColumn
 				                      title: 'Title'

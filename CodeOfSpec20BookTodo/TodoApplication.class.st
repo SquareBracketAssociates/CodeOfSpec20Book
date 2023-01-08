@@ -1,11 +1,11 @@
 Class {
-	#name : #SpTodoApplication,
+	#name : #TodoApplication,
 	#superclass : #SpApplication,
 	#category : #CodeOfSpec20BookTodo
 }
 
 { #category : #accessing }
-SpTodoApplication >> start [ 
+TodoApplication >> start [ 
 
 	TodoListPresenter open
 ]
