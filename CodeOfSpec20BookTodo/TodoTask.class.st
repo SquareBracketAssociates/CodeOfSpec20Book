@@ -11,9 +11,23 @@ Class {
 	#category : #CodeOfSpec20BookTodo
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'task management' }
+TodoTask class >> addTask: aTask [
+	
+	(tasks includes: aTask)
+		ifFalse: [ tasks add: aTask ]
+]
+
+{ #category : #'task management' }
+TodoTask class >> deleteTask: aTask [
+
+	tasks remove: aTask ifAbsent: [ nil ]
+]
+
+{ #category : #accessing }
 TodoTask class >> populateDB [
 	<script>
+	
 	TodoTask new
 		title: 'Task One';
 		save.
@@ -22,10 +36,16 @@ TodoTask class >> populateDB [
 		save
 ]
 
-{ #category : #accessing }
+{ #category : #'task management' }
 TodoTask class >> tasks [ 
 
 	^ tasks ifNil: [ tasks := OrderedCollection new]
+]
+
+{ #category : #saving }
+TodoTask >> delete [
+
+	self class deleteTask: self
 ]
 
 { #category : #accessing }
@@ -54,10 +74,16 @@ TodoTask >> isDone [
 	^ self done
 ]
 
+{ #category : #printing }
+TodoTask >> printOn: aStream [
+	super printOn: aStream.
+	aStream space nextPutAll: self title.
+]
+
 { #category : #saving }
 TodoTask >> save [
 
-	self class tasks add: self
+	self class addTask: self
 ]
 
 { #category : #accessing }
