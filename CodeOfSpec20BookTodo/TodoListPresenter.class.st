@@ -7,7 +7,8 @@ Class {
 	#name : #TodoListPresenter,
 	#superclass : #SpPresenter,
 	#instVars : [
-		'todoListPresenter'
+		'todoListPresenter',
+		'addButton'
 	],
 	#category : #CodeOfSpec20BookTodo
 }
@@ -16,6 +17,15 @@ Class {
 TodoListPresenter class >> open [ 
 	<script>
 	self new open
+]
+
+{ #category : #initialization }
+TodoListPresenter >> addTask [
+
+	(TodoTaskPresenter newApplication: self application) 
+		task: TodoTask new;
+		openModal.
+	self updatePresenter
 ]
 
 { #category : #initialization }
@@ -36,9 +46,18 @@ TodoListPresenter >> initializePresenters [
 				                      title: 'Title'
 				                      evaluated: [ :task | task title ]);
 		                     yourself.
-	self layout: (SpBoxLayout newTopToBottom
-			 add: todoListPresenter;
-			 yourself)
+	addButton := self newButton 
+		label: 'Add task';
+		action: [ self addTask ];
+		yourself.	
+		
+	self layout: (SpBoxLayout newTopToBottom 
+		add: todoListPresenter;
+		add: (SpBoxLayout newLeftToRight
+				addLast: addButton expand: false;
+				yourself) 
+		expand: false;
+		yourself)
 ]
 
 { #category : #initialization }

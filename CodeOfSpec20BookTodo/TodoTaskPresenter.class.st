@@ -47,6 +47,7 @@ TodoTaskPresenter >> task [
 
 { #category : #accessing }
 TodoTaskPresenter >> task: aTask [
+
 	task := aTask.
 	self updatePresenter
 ]
@@ -54,6 +55,6 @@ TodoTaskPresenter >> task: aTask [
 { #category : #initialization }
 TodoTaskPresenter >> updatePresenter [
 
-	titlePresenter text: (task title ifNil: [ '' ])
-
+	task ifNotNil: [  
+		titlePresenter text: (task title ifNil: [ '' ]) ]
 ]

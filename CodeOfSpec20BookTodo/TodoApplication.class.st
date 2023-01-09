@@ -1,3 +1,6 @@
+"
+`TodoApplication new run`
+"
 Class {
 	#name : #TodoApplication,
 	#superclass : #SpApplication,

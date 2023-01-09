@@ -44,7 +44,8 @@ TodoTask >> done: anObject [
 TodoTask >> initialize [
 
 	super initialize.
-	self done: false
+	self done: false.
+	self title: 'Please give me a title'
 ]
 
 { #category : #testing }
