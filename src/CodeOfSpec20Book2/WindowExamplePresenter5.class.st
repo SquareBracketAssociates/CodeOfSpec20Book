@@ -1,7 +1,7 @@
 "
 ```
 | wewin |
-wewin := WindowExamplePresenter5 new openWithSpec.
+wewin := WindowExamplePresenter5 new open.
 wewin window beUnresizeable
 ```
 "
@@ -15,8 +15,8 @@ Class {
 	#category : #'CodeOfSpec20Book2-Windowing'
 }
 
-{ #category : #specs }
-WindowExamplePresenter5 class >> defaultSpec [
+{ #category : #layout }
+WindowExamplePresenter5 class >> defaultLayout [
 
    ^ SpBoxLayout newLeftToRight
          add: #button1; add: #button2; yourself

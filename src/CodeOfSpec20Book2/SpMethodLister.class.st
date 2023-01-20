@@ -4,7 +4,7 @@ I'm the core of the way how to build a presenter whose sub presenters are initia
 In contrast with `SpMethodListerWithModel` I do not handle change of model (my sub presenters are not automatically updated). 
 
 ```
-(SpMethodLister on: Point) openWithSpec
+(SpMethodLister on: Point) open
 ```
 "
 Class {
@@ -17,8 +17,8 @@ Class {
 	#category : #'CodeOfSpec20Book2-WithModel'
 }
 
-{ #category : #specs }
-SpMethodLister class >> defaultSpec [ 
+{ #category : #layout }
+SpMethodLister class >> defaultLayout [ 
 	^ SpBoxLayout newTopToBottom add: #list ; yourself
 ]
 
