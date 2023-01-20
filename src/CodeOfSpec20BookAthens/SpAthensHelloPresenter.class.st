@@ -1,3 +1,10 @@
+"
+This demonstrate how to embed a morph using **SpMorphPresenter**
+
+```smalltalk
+SpAthensHelloPresenter open
+```
+"
 Class {
 	#name : #SpAthensHelloPresenter,
 	#superclass : #SpPresenter,
