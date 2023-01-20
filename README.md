@@ -7,7 +7,7 @@ To load it:
 
 ```smalltalk
 Metacello new
-				baseline: 'CodeOfSpec20Book';
-				repository: 'github://SquareBracketAssociates/CodeOfSpec20Book/src';
-				load
+    baseline: 'CodeOfSpec20Book';
+    repository: 'github://SquareBracketAssociates/CodeOfSpec20Book/src';
+    load
 ```
