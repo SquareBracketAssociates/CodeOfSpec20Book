@@ -1,5 +1,9 @@
 "
+This demonstrate the usage of **SpAthensPresenter**
+
+```smalltalk
 SpAthensExamplePresenter new open
+```
 "
 Class {
 	#name : #SpAthensExamplePresenter,

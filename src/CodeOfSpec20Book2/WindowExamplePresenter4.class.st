@@ -5,7 +5,7 @@ Pay attention nothing is working in this presenter
 | we |
 we := WindowExamplePresenter4 new.
 we extent: 100@80.
-we openWithSpec
+we open
 ```
 "
 Class {

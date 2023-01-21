@@ -2,14 +2,14 @@
 ```
 | we |
 we := WindowExamplePresenter new.
-we openWithSpec.
+we open.
 we openWithSpec: #defaultSpec.
 we openWithSpecLayout: we defaultSpec
 ```
 
 ```
 | wewin |
-wewin := WindowExamplePresenter new openWithSpec.
+wewin := WindowExamplePresenter new open.
 wewin window beUnresizeable
 ```
 "
@@ -23,8 +23,8 @@ Class {
 	#category : #'CodeOfSpec20Book2-Windowing'
 }
 
-{ #category : #specs }
-WindowExamplePresenter class >> defaultSpec [
+{ #category : #layout }
+WindowExamplePresenter class >> defaultLayout [
    ^ SpBoxLayout newLeftToRight
          add: #button1; add: #button2; yourself
 ]
@@ -40,12 +40,11 @@ WindowExamplePresenter class >> example1 [
 
 { #category : #specs }
 WindowExamplePresenter class >> example2 [
+
 	<example>
 	| we |
 	we := WindowExamplePresenter new.
-	we openWithSpec: #defaultSpec.
-
-
+	we openWithLayout: #defaultSpec
 ]
 
 { #category : #specs }
@@ -73,15 +72,14 @@ WindowExamplePresenter class >> example4ClosingWorkingExpressedAtOpenDialogLevel
 
 { #category : #specs }
 WindowExamplePresenter class >> example5 [
+
 	<example>
 	| we diag |
-	we := WindowExamplePresenter new. 
-	diag := we openDialogWithSpec
-		okAction: [Transcript show: 'okAction'];
-		cancelAction: [Transcript show: 'cancelAction'];
-		whenClosedDo: [ Transcript show: 'whenClosedDo']
-
-
+	we := WindowExamplePresenter new.
+	diag := we openDialog
+		        okAction: [ Transcript show: 'okAction' ];
+		        cancelAction: [ Transcript show: 'cancelAction' ];
+		        whenClosedDo: [ Transcript show: 'whenClosedDo' ]
 ]
 
 { #category : #specs }

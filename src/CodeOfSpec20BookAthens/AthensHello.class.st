@@ -1,5 +1,9 @@
 "
-AthensHello new openInWorld
+A sample Morph which painting is done using Athens Canvas
+
+```smalltalk
+AthensHello new openInWindow
+```
 "
 Class {
 	#name : #AthensHello,
