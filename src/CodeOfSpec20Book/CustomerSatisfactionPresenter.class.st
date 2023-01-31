@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #examples }
-CustomerSatisfactionPresenter class >> defaultSpec [
+CustomerSatisfactionPresenter class >> defaultLayout [
 	^ SpBoxLayout newTopToBottom  
 		add: (SpBoxLayout newLeftToRight 
 					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
@@ -23,7 +23,7 @@ CustomerSatisfactionPresenter class >> defaultSpec [
 CustomerSatisfactionPresenter class >> example [
 	<example>
 	
-	^ self new openWithSpec
+	^ self new open
 ]
 
 { #category : #initialization }
@@ -36,7 +36,7 @@ CustomerSatisfactionPresenter >> connectPresenters [
 ]
 
 { #category : #initialization }
-CustomerSatisfactionPresenter >> defaultSpec [
+CustomerSatisfactionPresenter >> defaultLayout [
 	^ SpBoxLayout newTopToBottom  
 		add: (SpBoxLayout newLeftToRight 
 					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
@@ -64,10 +64,7 @@ CustomerSatisfactionPresenter >> initializePresenters [
 		label: 'Bad';
 		icon: (self iconNamed: #thumbsDown).
 		
-	self focusOrder
-		add: buttonHappy;
-		add: buttonNeutral;
-		add: buttonBad
+
 ]
 
 { #category : #initialization }
@@ -77,12 +74,4 @@ CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter
 		title: 'Customer Satisfaction Survey';
 		initialExtent:  400@100
-]
-
-{ #category : #initialization }
-CustomerSatisfactionPresenter >> presenterConnectionLogic [
-
-	buttonHappy action: [ screen label: buttonHappy label ].
-	buttonNeutral action: [ screen label: buttonNeutral label ].
-	buttonBad action: [ screen label: buttonBad label ].
 ]
