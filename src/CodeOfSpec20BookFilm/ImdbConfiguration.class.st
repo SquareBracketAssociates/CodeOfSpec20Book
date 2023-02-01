@@ -4,16 +4,17 @@ Class {
 	#category : #CodeOfSpec20BookFilm
 }
 
-{ #category : #sylesheets }
-ImdbConfiguration >> customStyleSheet [
+{ #category : #configuring }
+ImdbConfiguration >> configure: anApplication [
 
-	^ (SpStyleVariableSTONReader fromString: '
-.application [ 
-	.customLabel [ Draw { #color: #red } ] ] ')
+	super configure: anApplication.
+	self addStyleSheetFromString: self customStyleSheet
 ]
 
 { #category : #sylesheets }
-ImdbConfiguration >> newStyleSheet [
+ImdbConfiguration >> customStyleSheet [
 
-	^ SpStyle defaultStyleSheet copy, self customStyleSheet
+	^ '
+.application [
+	.customLabel [ Draw { #color: #red } ] ] '
 ]
