@@ -7,7 +7,11 @@ Class {
 	#instVars : [
 		'button1',
 		'button2',
-		'button3'
+		'button3',
+		'nameText',
+		'passwordText',
+		'acceptButton',
+		'cancelButton'
 	],
 	#category : #CodeOfSpec20BookThreePillar
 }
