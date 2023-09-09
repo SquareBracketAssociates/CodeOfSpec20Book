@@ -14,14 +14,14 @@ Class {
 { #category : #'task management' }
 TodoTask class >> addTask: aTask [
 	
-	(tasks includes: aTask)
-		ifFalse: [ tasks add: aTask ]
+	(self tasks includes: aTask)
+		ifFalse: [ self tasks add: aTask ]
 ]
 
 { #category : #'task management' }
 TodoTask class >> deleteTask: aTask [
 
-	tasks remove: aTask ifAbsent: [ nil ]
+	self tasks remove: aTask ifAbsent: [ nil ]
 ]
 
 { #category : #accessing }
