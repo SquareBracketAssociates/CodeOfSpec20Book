@@ -1,1 +1,1 @@
-Package { #name : #CodeOfSpec20BookTrafficLights }
+Package { #name : 'CodeOfSpec20BookTrafficLights' }

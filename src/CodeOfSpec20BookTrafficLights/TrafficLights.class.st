@@ -20,8 +20,8 @@ newWith: aBorderedMorph
 ```
 "
 Class {
-	#name : #TrafficLights,
-	#superclass : #Object,
+	#name : 'TrafficLights',
+	#superclass : 'Object',
 	#instVars : [
 		'lamps',
 		'activeLamp',
@@ -29,10 +29,12 @@ Class {
 		'stopwatch',
 		'morphView'
 	],
-	#category : #'CodeOfSpec20BookTrafficLights-Domain'
+	#category : 'CodeOfSpec20BookTrafficLights-Domain',
+	#package : 'CodeOfSpec20BookTrafficLights',
+	#tag : 'Domain'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TrafficLights class >> newWith: aMorph [
 
 	| traffic |
@@ -43,7 +45,7 @@ TrafficLights class >> newWith: aMorph [
 	^ traffic 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TrafficLights >> changeLamp [
 
 	(lamps at: activeLamp) switchOff.
@@ -51,7 +53,7 @@ TrafficLights >> changeLamp [
 	(lamps at: activeLamp) switchOn
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrafficLights >> initialize [
 
 	lamps := {
@@ -66,7 +68,7 @@ TrafficLights >> initialize [
 	stopwatch := Stopwatch new.
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TrafficLights >> run [
 
 	mustRun := true.
@@ -79,17 +81,17 @@ TrafficLights >> run [
 		self changeLamp ] ] fork
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TrafficLights >> setDurations: anArray [
 	1 to: 3 do: [ :i | (lamps at: i) duration: (anArray at: i) ]
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TrafficLights >> stop [
 	mustRun := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TrafficLights >> view: aMorph [
 	morphView := aMorph 
 ]

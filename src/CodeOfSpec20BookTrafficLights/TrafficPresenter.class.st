@@ -19,8 +19,8 @@ TrafficPresenter new open.
 A TrafficPresenter creates all subpresenters and morphs, creates a TrafficLights instance with the body morph.
 "
 Class {
-	#name : #TrafficPresenter,
-	#superclass : #SpPresenter,
+	#name : 'TrafficPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'body',
 		'manualButton',
@@ -30,10 +30,12 @@ Class {
 		'model',
 		'morphPresenter'
 	],
-	#category : #'CodeOfSpec20BookTrafficLights-UI'
+	#category : 'CodeOfSpec20BookTrafficLights-UI',
+	#package : 'CodeOfSpec20BookTrafficLights',
+	#tag : 'UI'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrafficPresenter >> connectPresenters [
 
 	manualButton action: [ model stop; changeLamp ].
@@ -49,7 +51,7 @@ TrafficPresenter >> connectPresenters [
 	quitButton action: [ self delete ]
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TrafficPresenter >> defaultLayout [
 
 	^ SpBoxLayout newHorizontal
@@ -67,7 +69,7 @@ TrafficPresenter >> defaultLayout [
 		  yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrafficPresenter >> initializeMorph [
 
 	body := BorderedMorph new
@@ -92,7 +94,7 @@ TrafficPresenter >> initializeMorph [
 	model := TrafficLights newWith: body.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrafficPresenter >> initializePresenters [
 
 	self initializeMorph.
@@ -115,7 +117,7 @@ TrafficPresenter >> initializePresenters [
 	durationPanel hide.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TrafficPresenter >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter

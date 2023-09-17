@@ -16,38 +16,40 @@ I am a helper presenter to input three integers.
 
 "
 Class {
-	#name : #InputPanelPresenter,
-	#superclass : #SpPresenter,
+	#name : 'InputPanelPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'redInput',
 		'yellowInput',
 		'greenInput',
 		'readyButton'
 	],
-	#category : #'CodeOfSpec20BookTrafficLights-UI'
+	#category : 'CodeOfSpec20BookTrafficLights-UI',
+	#package : 'CodeOfSpec20BookTrafficLights',
+	#tag : 'UI'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 InputPanelPresenter class >> example [
 	<script>
 	
 	self new open
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 InputPanelPresenter >> action: aBlock [
 
 	readyButton action: aBlock
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 InputPanelPresenter >> connectPresenters [
 
 	readyButton action: [
 		self hide ]
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 InputPanelPresenter >> defaultLayout [
 	
 	^ SpGridLayout new
@@ -62,13 +64,13 @@ InputPanelPresenter >> defaultLayout [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 InputPanelPresenter >> greenDuration [
 
 	^ greenInput number
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 InputPanelPresenter >> initializePresenters [
 
 	redInput := self newNumberInput
@@ -89,7 +91,7 @@ InputPanelPresenter >> initializePresenters [
 		               yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 InputPanelPresenter >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter
@@ -97,13 +99,13 @@ InputPanelPresenter >> initializeWindow: aWindowPresenter [
 		initialExtent: 200 @ 200
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 InputPanelPresenter >> redDuration [
 
 	^ redInput number
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 InputPanelPresenter >> yellowDuration [
 
 	^ yellowInput number

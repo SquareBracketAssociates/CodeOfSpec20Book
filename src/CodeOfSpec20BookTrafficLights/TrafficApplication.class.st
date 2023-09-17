@@ -7,19 +7,21 @@ TrafficApplication example.
 ```
 "
 Class {
-	#name : #TrafficApplication,
-	#superclass : #SpApplication,
-	#category : #'CodeOfSpec20BookTrafficLights-UI'
+	#name : 'TrafficApplication',
+	#superclass : 'SpApplication',
+	#category : 'CodeOfSpec20BookTrafficLights-UI',
+	#package : 'CodeOfSpec20BookTrafficLights',
+	#tag : 'UI'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 TrafficApplication class >> example [
 
 	<script>
 	self new start
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 TrafficApplication >> start [
 
 	| window |
