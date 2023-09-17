@@ -74,17 +74,17 @@ TrafficPresenter >> initializeMorph [
 		        color: Color lightGray;
 		        extent: 240 @ 660.
 	body addAllMorphs: {
-			(BalloonMorph new
+			(CircleMorph new
 				 color: Color lightGray lighter;
 				 borderColor: Color darkGray;
 				 extent: 200 @ 200;
 				 position: body position + (25 @ 25)).
-			(BalloonMorph new
+			(CircleMorph new
 				 color: Color yellow;
 				 borderColor: Color darkGray;
 				 extent: 200 @ 200;
 				 position: body position + (25 @ 235)).
-			(BalloonMorph new
+			(CircleMorph new
 				 color: Color lightGray lighter;
 				 borderColor: Color darkGray;
 				 extent: 200 @ 200;
