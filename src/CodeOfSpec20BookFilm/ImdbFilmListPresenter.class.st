@@ -117,7 +117,7 @@ ImdbFilmListPresenter >> initializePresenters [
 			            (SpStringTableColumn title: 'Year' evaluated: #year);
 		            yourself.
 	detail := self instantiate: ImdbFilmPresenter.
-	detail enabled: false.
+	detail editable: false.
 ]
 
 { #category : #initialization }
