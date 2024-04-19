@@ -2,28 +2,30 @@
 `ProtocolViewerPresenter new open` at least!
 "
 Class {
-	#name : #ProtocolViewerPresenter,
-	#superclass : #SpPresenter,
+	#name : 'ProtocolViewerPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'models',
 		'api',
 		'events'
 	],
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#category : 'CodeOfSpec20Book-Chapter08',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter08'
 }
 
-{ #category : #specs }
+{ #category : 'specs' }
 ProtocolViewerPresenter class >> defaultLayout [
 	^ self verticalLayout
 ]
 
-{ #category : #specs }
+{ #category : 'specs' }
 ProtocolViewerPresenter class >> example [
 
 	self new open
 ]
 
-{ #category : #specs }
+{ #category : 'specs' }
 ProtocolViewerPresenter class >> horizontalLayout [
 	^ SpBoxLayout newLeftToRight 
 			add: #models; 
@@ -32,7 +34,7 @@ ProtocolViewerPresenter class >> horizontalLayout [
 			yourself
 ]
 
-{ #category : #specs }
+{ #category : 'specs' }
 ProtocolViewerPresenter class >> verticalLayout [
 	^ SpBoxLayout newTopToBottom 
 			add: #models; 
@@ -41,7 +43,7 @@ ProtocolViewerPresenter class >> verticalLayout [
 			yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolViewerPresenter >> connectPresenters [
 
 	models whenSelectionChangedDo: [ :selection |
@@ -63,17 +65,17 @@ ProtocolViewerPresenter >> connectPresenters [
 		selection selectedItem ifNotNil: [ api resetSelection ] ].
 ]
 
-{ #category : #layouts }
+{ #category : 'layouts' }
 ProtocolViewerPresenter >> defaultLayout [
 	^ self verticalLayout
 ]
 
-{ #category : #layouts }
+{ #category : 'layouts' }
 ProtocolViewerPresenter >> horizontalLayout [
 	^ self class horizontalLayout
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolViewerPresenter >> initializePresenters [
 
 	models := self instantiate: WidgetClassListPresenter.
@@ -89,32 +91,32 @@ ProtocolViewerPresenter >> initializePresenters [
 		add: events
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter title: 'Protocol viewer'
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 ProtocolViewerPresenter >> methodsIn: class for: protocol [
 	^ (class methodsInProtocol: protocol) sorted: [ :a :b | a selector < b selector ]
 ]
 
-{ #category : #layouts }
+{ #category : 'layouts' }
 ProtocolViewerPresenter >> verticalLayout [
 	^ self class verticalLayout 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 ProtocolViewerPresenter >> whenSelectionInAPIChanged: aBlock [
 	api whenSelectionChangedDo: aBlock
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 ProtocolViewerPresenter >> whenSelectionInClassChanged: aBlock [
 	models whenSelectionChangedDo: aBlock
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 ProtocolViewerPresenter >> whenSelectionInEventChanged: aBlock [
 	events whenSelectionChangedDo: aBlock
 ]

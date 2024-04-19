@@ -1,16 +1,18 @@
 Class {
-	#name : #CustomerSatisfactionPresenter,
-	#superclass : #SpPresenter,
+	#name : 'CustomerSatisfactionPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'buttonHappy',
 		'buttonNeutral',
 		'buttonBad',
 		'screen'
 	],
-	#category : #'CodeOfSpec20Book-Customer'
+	#category : 'CodeOfSpec20Book-Chapter02',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter02'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 CustomerSatisfactionPresenter class >> defaultLayout [
 	^ SpBoxLayout newTopToBottom  
 		add: (SpBoxLayout newLeftToRight 
@@ -19,14 +21,14 @@ CustomerSatisfactionPresenter class >> defaultLayout [
 		yourself
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 CustomerSatisfactionPresenter class >> example [
 	<example>
 	
 	^ self new open
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> connectPresenters [ 
 	"note that the actions could also be part of the initializePresenters method"
 	
@@ -35,7 +37,7 @@ CustomerSatisfactionPresenter >> connectPresenters [
 	buttonBad action: [ screen label: buttonBad label ].
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> defaultLayout [
 	^ SpBoxLayout newTopToBottom  
 		add: (SpBoxLayout newLeftToRight 
@@ -44,7 +46,7 @@ CustomerSatisfactionPresenter >> defaultLayout [
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> initializePresenters [
 
 	screen := self newLabel.
@@ -67,7 +69,7 @@ CustomerSatisfactionPresenter >> initializePresenters [
 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
 	
 	super initializeWindow: aWindowPresenter.

@@ -1,33 +1,35 @@
 Class {
-	#name : #BookScriptTest,
-	#superclass : #TestCase,
+	#name : 'BookScriptTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'instance'
 	],
-	#category : #'CodeOfSpec20Book-Scripts'
+	#category : 'CodeOfSpec20Book-UnusedInBook',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'UnusedInBook'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BookScriptTest >> tearDown [
 	
 	instance window close 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BookScriptTest >> testColorNames [
 	
 	instance := BookScripts colorNames.
 	self assert: instance items first equals: 'black'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BookScriptTest >> testColors [
 	
 	instance := BookScripts allInstances.
 	self assert: instance items first class equals: Color.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BookScriptTest >> testTriplets [
 	
 	instance := BookScripts triplet.
