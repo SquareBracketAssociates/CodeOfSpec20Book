@@ -15,14 +15,14 @@ Class {
 { #category : 'examples' }
 CustomerSatisfactionPresenter class >> example [
 	<example>
-	
+
 	^ self new open
 ]
 
 { #category : 'initialization' }
 CustomerSatisfactionPresenter >> connectPresenters [ 
 	"Note that the actions could also be part of the initializePresenters method."
-	
+
 	buttonHappy action: [ result label: buttonHappy label ].
 	buttonNeutral action: [ result label: buttonNeutral label ].
 	buttonBad action: [ result label: buttonBad label ]
@@ -31,7 +31,7 @@ CustomerSatisfactionPresenter >> connectPresenters [
 { #category : 'layout' }
 CustomerSatisfactionPresenter >> defaultLayout [
 
-	^ SpBoxLayout newTopToBottom  
+	^ SpBoxLayout newTopToBottom
 		add: (SpBoxLayout newLeftToRight 
 					add: buttonHappy;
 					add: buttonNeutral;
@@ -59,9 +59,7 @@ CustomerSatisfactionPresenter >> initializePresenters [
 		icon: (self iconNamed: #user).
 	buttonBad
 		label: 'Bad';
-		icon: (self iconNamed: #thumbsDown).
-		
-
+		icon: (self iconNamed: #thumbsDown)
 ]
 
 { #category : 'initialization' }
