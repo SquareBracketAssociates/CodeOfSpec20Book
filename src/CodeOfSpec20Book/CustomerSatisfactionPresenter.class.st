@@ -37,7 +37,7 @@ CustomerSatisfactionPresenter >> defaultLayout [
 					add: buttonNeutral;
 					add: buttonBad;
 					yourself);
-		add:  result;
+		add: result;
 		yourself
 ]
 
