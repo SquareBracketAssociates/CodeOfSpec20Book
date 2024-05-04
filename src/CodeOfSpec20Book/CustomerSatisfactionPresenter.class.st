@@ -1,59 +1,56 @@
 Class {
-	#name : #CustomerSatisfactionPresenter,
-	#superclass : #SpPresenter,
+	#name : 'CustomerSatisfactionPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'buttonHappy',
 		'buttonNeutral',
 		'buttonBad',
-		'screen'
+		'result'
 	],
-	#category : #'CodeOfSpec20Book-Customer'
+	#category : 'CodeOfSpec20Book-Chapter02',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter02'
 }
 
-{ #category : #examples }
-CustomerSatisfactionPresenter class >> defaultLayout [
-	^ SpBoxLayout newTopToBottom  
-		add: (SpBoxLayout newLeftToRight 
-					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
-		add:  #screen;
-		yourself
-]
-
-{ #category : #examples }
+{ #category : 'examples' }
 CustomerSatisfactionPresenter class >> example [
 	<example>
-	
+
 	^ self new open
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> connectPresenters [ 
-	"note that the actions could also be part of the initializePresenters method"
-	
-	buttonHappy action: [ screen label: buttonHappy label ].
-	buttonNeutral action: [ screen label: buttonNeutral label ].
-	buttonBad action: [ screen label: buttonBad label ].
+	"Note that the actions could also be part of the initializePresenters method."
+
+	buttonHappy action: [ result label: buttonHappy label ].
+	buttonNeutral action: [ result label: buttonNeutral label ].
+	buttonBad action: [ result label: buttonBad label ]
 ]
 
-{ #category : #initialization }
+{ #category : 'layout' }
 CustomerSatisfactionPresenter >> defaultLayout [
-	^ SpBoxLayout newTopToBottom  
+
+	^ SpBoxLayout newTopToBottom
 		add: (SpBoxLayout newLeftToRight 
-					add: #buttonHappy; add: #buttonNeutral; add: #buttonBad; yourself);
-		add:  #screen;
+					add: buttonHappy;
+					add: buttonNeutral;
+					add: buttonBad;
+					yourself);
+		add: result;
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> initializePresenters [
 
-	screen := self newLabel.
+	result := self newLabel.
 	buttonHappy := self newButton.
 	buttonNeutral := self newButton.
 	buttonBad := self newButton.
 	
 	"Presenter configuration"
-	screen label: 'Please give us your feedback.'.
+	result label: 'Please give us your feedback.'.
 	buttonHappy
 		label: 'Happy';
 		icon: (self iconNamed: #thumbsUp).
@@ -62,12 +59,10 @@ CustomerSatisfactionPresenter >> initializePresenters [
 		icon: (self iconNamed: #user).
 	buttonBad
 		label: 'Bad';
-		icon: (self iconNamed: #thumbsDown).
-		
-
+		icon: (self iconNamed: #thumbsDown)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
 	
 	super initializeWindow: aWindowPresenter.

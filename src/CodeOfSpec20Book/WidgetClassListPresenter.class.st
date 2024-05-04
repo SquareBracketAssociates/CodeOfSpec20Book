@@ -7,28 +7,30 @@ WidgetClassListPresenter new open
 ```
 "
 Class {
-	#name : #WidgetClassListPresenter,
-	#superclass : #SpPresenter,
+	#name : 'WidgetClassListPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'list'
 	],
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#category : 'CodeOfSpec20Book-Chapter08',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter08'
 }
 
-{ #category : #specs }
+{ #category : 'specs' }
 WidgetClassListPresenter class >> example [
 	<script>
 	self new open
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 WidgetClassListPresenter >> defaultLayout [
 	^ SpBoxLayout newLeftToRight 
 		add: #list;
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 WidgetClassListPresenter >> initializePresenters [
 	list := self newList.
 	list items: (SpAbstractWidgetPresenter allSubclasses
@@ -36,12 +38,12 @@ WidgetClassListPresenter >> initializePresenters [
 	self focusOrder add: list.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 WidgetClassListPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter title: 'Widgets'
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 WidgetClassListPresenter >> whenSelectionChangedDo: aBlock [
 	list whenSelectionChangedDo: aBlock
 ]

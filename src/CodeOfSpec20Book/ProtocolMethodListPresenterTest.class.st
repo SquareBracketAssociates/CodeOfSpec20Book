@@ -1,10 +1,12 @@
 Class {
-	#name : #ProtocolMethodListPresenterTest,
-	#superclass : #TestCase,
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#name : 'ProtocolMethodListPresenterTest',
+	#superclass : 'TestCase',
+	#category : 'CodeOfSpec20Book-Chapter08',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter08'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ProtocolMethodListPresenterTest >> testItems [
 
 	| proto methods |

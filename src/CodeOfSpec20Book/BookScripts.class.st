@@ -1,10 +1,12 @@
 Class {
-	#name : #BookScripts,
-	#superclass : #Object,
-	#category : #'CodeOfSpec20Book-Scripts'
+	#name : 'BookScripts',
+	#superclass : 'Object',
+	#category : 'CodeOfSpec20Book-UnusedInBook',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'UnusedInBook'
 }
 
-{ #category : #scripts }
+{ #category : 'scripts' }
 BookScripts class >> allInstances [
 	| registeredColorsList |
 	registeredColorsList := SpListPresenter new.
@@ -15,7 +17,7 @@ BookScripts class >> allInstances [
 	^ registeredColorsList
 ]
 
-{ #category : #scripts }
+{ #category : 'scripts' }
 BookScripts class >> colorNames [
 	| registeredColorsList |
 	registeredColorsList := SpListPresenter new.
@@ -26,7 +28,7 @@ BookScripts class >> colorNames [
 	^ registeredColorsList
 ]
 
-{ #category : #scripts }
+{ #category : 'scripts' }
 BookScripts class >> triplet [
 	| registeredColorsList |
 	registeredColorsList := SpListPresenter new.

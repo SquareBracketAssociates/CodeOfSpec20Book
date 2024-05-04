@@ -6,16 +6,18 @@ ProtocolCodeBrowserPresenter new open
 ```
 "
 Class {
-	#name : #ProtocolCodeBrowserPresenter,
-	#superclass : #SpPresenter,
+	#name : 'ProtocolCodeBrowserPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'text',
 		'viewer'
 	],
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#category : 'CodeOfSpec20Book-Chapter08',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter08'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> connectPresenters [
 
 	viewer whenSelectionInClassChanged: [ :selection | text behavior: selection selectedItem ].
@@ -27,7 +29,7 @@ ProtocolCodeBrowserPresenter >> connectPresenters [
 			ifNotNil: [ :item | text text: item sourceCode ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> defaultLayout [
 	
 	^ SpBoxLayout newTopToBottom
@@ -36,7 +38,7 @@ ProtocolCodeBrowserPresenter >> defaultLayout [
 			yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializePresenters [
 	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter with: ProtocolViewerPresenter horizontalLayout.
@@ -46,7 +48,7 @@ ProtocolCodeBrowserPresenter >> initializePresenters [
 		add: text
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializePresenters2 [
 	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter.
@@ -56,7 +58,7 @@ ProtocolCodeBrowserPresenter >> initializePresenters2 [
 		add: text
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter title: 'Spec Protocol Browser'
 ]
