@@ -29,21 +29,21 @@ Class {
 { #category : 'examples' }
 ImdbFilmListPresenter class >> example [
 	<script>
-	
+
 	| app presenter |
-app := ImdbApp new. 
-presenter := app newPresenter: ImdbFilmListPresenter.
-presenter openWithLayout: presenter listAboveLayout.
+	app := ImdbApp new. 
+	presenter := app newPresenter: self.
+	presenter open
 ]
 
 { #category : 'examples' }
-ImdbFilmListPresenter class >> example1 [
+ImdbFilmListPresenter class >> exampleWithListBelow [
 	<script>
-	| app presenter |
 	
+	| app presenter |
 	app := ImdbApp new. 
-	presenter := app newPresenter: ImdbFilmListPresenter.
-	presenter open
+	presenter := app newPresenter: self.
+	presenter openWithLayout: presenter listBelowLayout
 ]
 
 { #category : 'adding' }
@@ -128,7 +128,7 @@ ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 ]
 
 { #category : 'layout' }
-ImdbFilmListPresenter >> listAboveLayout [
+ImdbFilmListPresenter >> listBelowLayout [
 
 	^ SpBoxLayout newTopToBottom
 		add: detail;
