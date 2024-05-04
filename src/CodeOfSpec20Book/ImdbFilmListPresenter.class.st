@@ -76,11 +76,6 @@ ImdbFilmListPresenter >> connectPresenters [
 			detail setModel: selectedItemMode selectedItem ] ]
 ]
 
-{ #category : 'ports' }
-ImdbFilmListPresenter >> defaultInputPort [
-	^ self inputModelPort
-]
-
 { #category : 'layout' }
 ImdbFilmListPresenter >> defaultLayout [
 
@@ -130,11 +125,6 @@ ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 		title: 'Mini IMDB';
 		initialExtent: 600@400;
 		toolbar: toolbar
-]
-
-{ #category : 'ports' }
-ImdbFilmListPresenter >> inputModelPort [
-	^ SpModelPort newPresenter: self
 ]
 
 { #category : 'layout' }
