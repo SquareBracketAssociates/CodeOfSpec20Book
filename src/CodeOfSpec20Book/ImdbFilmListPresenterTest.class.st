@@ -1,5 +1,5 @@
 Class {
-	#name : 'FilmListPresenterTest',
+	#name : 'ImdbFilmListPresenterTest',
 	#superclass : 'TestCase',
 	#instVars : [
 		'presenter'
@@ -10,28 +10,30 @@ Class {
 }
 
 { #category : 'running' }
-FilmListPresenterTest >> setUp [
+ImdbFilmListPresenterTest >> setUp [
+
 	super setUp. 
 	ImdbFilm reset. 
-	ImdbFilm addET.
+	ImdbFilm addET
 ]
 
 { #category : 'running' }
-FilmListPresenterTest >> tearDown [
+ImdbFilmListPresenterTest >> tearDown [
+
 	presenter ifNotNil: [ presenter delete ].
-	super tearDown. 
+	super tearDown
 ]
 
 { #category : 'tests' }
-FilmListPresenterTest >> testListIsSimpleSelection [
+ImdbFilmListPresenterTest >> testListIsSimpleSelection [
 
 	presenter := ImdbFilmListPresenter new.	
 	presenter open.
-	self deny: presenter filmList isMultipleSelection.
+	self deny: presenter filmList isMultipleSelection
 ]
 
 { #category : 'tests' }
-FilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
+ImdbFilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
 
 	| name |
 	"Arrange"
@@ -51,7 +53,7 @@ FilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
 ]
 
 { #category : 'tests' }
-FilmListPresenterTest >> testWhenSelectingOneFilmThenDetailIsUpdated [
+ImdbFilmListPresenterTest >> testWhenSelectingOneFilmThenDetailIsUpdated [
 
 	| detail |
 	"Arrange"
