@@ -27,7 +27,7 @@ ImdbFilmPresenter >> defaultLayout [
 	^ SpGridLayout build: [ :builder |
 		builder
 			beColumnNotHomogeneous;
-			column:2 withConstraints: #beExpand;
+			column: 2 withConstraints: #beExpand;
 			add: nameLabel; add: nameText; nextRow;
 			add: 'Director'; add: directorText; nextRow;
 			add: 'Year'; add: yearNumber ]
@@ -35,7 +35,8 @@ ImdbFilmPresenter >> defaultLayout [
 
 { #category : 'accessing' }
 ImdbFilmPresenter >> director [
-       ^ directorText text
+
+	^ directorText text
 ]
 
 { #category : 'accessing' }
@@ -63,12 +64,13 @@ ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 
 	aDialogPresenter centered.
 	aDialogPresenter 
-		addButton: 'Cancel' do: [ :presenter | presenter close ];
-		addButton: 'Save Film' do: [ :presenter | presenter beOk; close ].
+		addButton: 'Cancel' do: [ :button | button close ];
+		addButton: 'Save Film' do: [ :button | button beOk; close ].
 ]
 
 { #category : 'initialization' }
-ImdbFilmPresenter >> initializePresenters [ 
+ImdbFilmPresenter >> initializePresenters [
+
 	nameLabel := self newLabel 
 		label: 'Name'; 
 		addStyle: 'customLabel'; 
@@ -76,20 +78,22 @@ ImdbFilmPresenter >> initializePresenters [
 	nameText := self newTextInput.
 	directorText := self newTextInput.
 	yearNumber := self newNumberInput 
-			rangeMinimum: 1900 maximum: Year current year;
-			yourself.
+		rangeMinimum: 1900 maximum: Year current year;
+		yourself.
 ]
 
 { #category : 'window' }
 ImdbFilmPresenter >> initializeWindow: aWindowPresenter [
-        aWindowPresenter
-         title: 'Film';
-         initialExtent: 400 @ 250
+
+	aWindowPresenter
+		title: 'Film';
+		initialExtent: 400@250
 ]
 
 { #category : 'accessing' }
 ImdbFilmPresenter >> name [
-       ^ nameText text
+
+	^ nameText text
 ]
 
 { #category : 'accessing' }
@@ -106,14 +110,22 @@ ImdbFilmPresenter >> nameText: anObject [
 
 { #category : 'model' }
 ImdbFilmPresenter >> setModel: aFilm [
-        nameText text: aFilm name.
-        directorText text: aFilm director.
-        yearNumber number: aFilm year.
+
+	aFilm
+		ifNil: [
+			nameText text: ''.
+			directorText text: ''.
+			yearNumber number: '' ]
+		ifNotNil: [
+			nameText text: aFilm name.
+			directorText text: aFilm director.
+			yearNumber number: aFilm year ]
 ]
 
 { #category : 'accessing' }
 ImdbFilmPresenter >> yearNumber [
-       ^ yearNumber text
+
+	^ yearNumber text
 ]
 
 { #category : 'accessing' }

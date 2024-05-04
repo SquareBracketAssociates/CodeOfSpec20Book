@@ -12,5 +12,5 @@ ImdbApp >> initialize [
  	super initialize.
 	self
 		useBackend: #Morphic 
-		with: ImdbConfiguration new.
+		with: ImdbConfiguration new
 ]

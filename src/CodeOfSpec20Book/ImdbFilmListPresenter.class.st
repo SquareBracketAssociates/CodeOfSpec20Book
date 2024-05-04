@@ -48,36 +48,31 @@ ImdbFilmListPresenter class >> example1 [
 
 { #category : 'adding' }
 ImdbFilmListPresenter >> addFilm [
-        | dialog windowPresenter |
-        dialog := ImdbFilmPresenter newApplication: self application.
-        windowPresenter := dialog openModal.
-	windowPresenter isOk
-        ifFalse: [ ^ self ].
-       ImdbFilm
-        addFilm:
-         (ImdbFilm new
-          name: dialog name;
-          director: dialog director;
-          year: dialog yearNumber).
-       self updatePresenter
 
-	
+	| dialog windowPresenter film |
+	dialog := ImdbFilmPresenter newApplication: self application.
+	windowPresenter := dialog openModal.
+	windowPresenter isOk ifFalse: [ ^ self ].
+
+	film := ImdbFilm new
+		name: dialog name;
+		director: dialog director;
+		year: dialog yearNumber.
+	ImdbFilm addFilm: film.
+	self updatePresenter
 ]
 
 { #category : 'testing support' }
-ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [ 
+ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [
+
 	filmList clickAtIndex: anIndex
 ]
 
 { #category : 'initialization' }
 ImdbFilmListPresenter >> connectPresenters [
-	"Do not get why the ports are not workingCopies 
-	
-		filmList transmitTo: detail
-		
-	"
-	filmList whenSelectionChangedDo: [ :selectedItemMode | 
-		selectedItemMode isEmpty ifFalse: [ 
+
+	filmList whenSelectionChangedDo: [ :selectedItemMode |
+		selectedItemMode isEmpty ifFalse: [
 			detail setModel: selectedItemMode selectedItem ] ]
 ]
 
@@ -97,11 +92,13 @@ ImdbFilmListPresenter >> defaultLayout [
 
 { #category : 'testing support' }
 ImdbFilmListPresenter >> detail [
+
 	^ detail
 ]
 
 { #category : 'testing support' }
 ImdbFilmListPresenter >> filmList [
+
 	^ filmList
 ]
 
@@ -109,32 +106,30 @@ ImdbFilmListPresenter >> filmList [
 ImdbFilmListPresenter >> initializePresenters [
 
 	filmList := self newTable
-		            addColumn:
-			            (SpStringTableColumn title: 'Name' evaluated: #name);
-		            addColumn:
-			            (SpStringTableColumn
-				             title: 'Director'
-				             evaluated: #director);
-		            addColumn:
-			            (SpStringTableColumn title: 'Year' evaluated: #year);
-		            yourself.
+		addColumn: (SpStringTableColumn title: 'Name' evaluated: #name);
+		addColumn: (SpStringTableColumn title: 'Director' evaluated: #director);
+		addColumn: (SpStringTableColumn title: 'Year' evaluated: #year);
+		yourself.
 	detail := self instantiate: ImdbFilmPresenter.
-	detail editable: false.
+	detail editable: false
 ]
 
 { #category : 'initialization' }
 ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 
-	aWindowPresenter 
+	| addButton toolbar |
+	addButton := self newToolbarButton
+			label: 'Add film' ;
+			icon: (self iconNamed: #smallAdd);
+			action: [ self addFilm ];
+			yourself.
+	toolbar := self newToolbar
+		add: addButton;
+		yourself.
+	aWindowPresenter
 		title: 'Mini IMDB';
 		initialExtent: 600@400;
-		toolbar: (self newToolbar
-					add: (self newToolbarButton 
-							label: 'Add film' ;
-							icon: (self iconNamed: #smallAdd);
-							action: [ self addFilm ];
-							yourself);
-						yourself)
+		toolbar: toolbar
 ]
 
 { #category : 'ports' }

@@ -16,6 +16,7 @@ Class {
 
 { #category : 'initialization' }
 ImdbFilm class >> ET [
+
 	^ self new 
 		name: 'E.T.';
 		director: 'Steven Spielberg';
@@ -25,23 +26,25 @@ ImdbFilm class >> ET [
 
 { #category : 'initialization' }
 ImdbFilm class >> addET [
+
 	films add: self ET
 ]
 
 { #category : 'accessing' }
 ImdbFilm class >> addFilm: aFilm [
-	films add: aFilm
 
+	films add: aFilm
 ]
 
 { #category : 'accessing' }
 ImdbFilm class >> films [
-       ^ films ifNil: [ films := OrderedCollection new ]
 
+	^ films ifNil: [ films := OrderedCollection new ]
 ]
 
 { #category : 'initialization' }
-ImdbFilm class >> reset [ 
+ImdbFilm class >> reset [
+
 	films := OrderedCollection new
 ]
 
@@ -52,9 +55,9 @@ ImdbFilm >> director [
 ]
 
 { #category : 'accessing' }
-ImdbFilm >> director: anObject [
+ImdbFilm >> director: aString [
 
-	director := anObject
+	director := aString
 ]
 
 { #category : 'accessing' }
@@ -64,9 +67,9 @@ ImdbFilm >> name [
 ]
 
 { #category : 'accessing' }
-ImdbFilm >> name: anObject [
+ImdbFilm >> name: aString [
 
-	name := anObject
+	name := aString
 ]
 
 { #category : 'accessing' }
@@ -76,7 +79,7 @@ ImdbFilm >> year [
 ]
 
 { #category : 'accessing' }
-ImdbFilm >> year: anObject [
+ImdbFilm >> year: aString [
 
-	year := anObject
+	year := aString
 ]
