@@ -72,8 +72,7 @@ ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [
 ImdbFilmListPresenter >> connectPresenters [
 
 	filmList whenSelectionChangedDo: [ :selectedItemMode |
-		selectedItemMode isEmpty ifFalse: [
-			detail setModel: selectedItemMode selectedItem ] ]
+		detail setModel: selectedItemMode selectedItem ]
 ]
 
 { #category : 'layout' }
