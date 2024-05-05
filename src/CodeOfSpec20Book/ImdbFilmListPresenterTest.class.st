@@ -33,7 +33,7 @@ ImdbFilmListPresenterTest >> testListIsSimpleSelection [
 ]
 
 { #category : 'tests' }
-ImdbFilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
+ImdbFilmListPresenterTest >> testNoSelectionClearsDetails [
 
 	| name |
 	"Arrange"
@@ -45,11 +45,11 @@ ImdbFilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
 
 	"Assert"
 	name := presenter detail name.
-	self deny:  name isEmpty. 
+	self deny: name isEmpty.
 	self assert: presenter filmList listSize equals: 1.
 
 	presenter clickFilmAtIndex: 2.
-	self assert: presenter detail name equals: name
+	self assert: presenter detail name equals: ''
 ]
 
 { #category : 'tests' }
@@ -66,5 +66,5 @@ ImdbFilmListPresenterTest >> testWhenSelectingOneFilmThenDetailIsUpdated [
 	presenter clickFilmAtIndex: 1.
 
 	"Assert"
-	self deny: detail name isEmpty.
+	self deny: detail name isEmpty
 ]
