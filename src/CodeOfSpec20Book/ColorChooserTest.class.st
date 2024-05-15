@@ -85,6 +85,17 @@ ColorChooserTest >> testInitialization [
 ]
 
 { #category : 'tests' }
+ColorChooserTest >> testInitializeWindow [
+
+	| window |
+	chooser := ColorChooser new.
+	window := chooser open.
+	self assert: window isBuilt.
+	self assert: window title equals: 'Color Chooser'.
+	self assert: window initialExtent equals: 400@294
+]
+
+{ #category : 'tests' }
 ColorChooserTest >> testLighter [
 	"When the user presses the 'Lighter' button,
 	 the color box shows the ligher color
