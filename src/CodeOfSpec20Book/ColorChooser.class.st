@@ -123,13 +123,6 @@ ColorChooser >> detailsText [
 ]
 
 { #category : 'initialization' }
-ColorChooser >> initialize [
-
-	super initialize.
-	currentColor := Color transparent
-]
-
-{ #category : 'initialization' }
 ColorChooser >> initializePresenters [
 
 	colorList := self newList
@@ -162,6 +155,12 @@ ColorChooser >> lighter [
 	self updateColor: currentColor lighter
 ]
 
+{ #category : 'accessing - model' }
+ColorChooser >> setModelBeforeInitialization: aColor [
+
+	currentColor := aColor
+]
+
 { #category : 'private' }
 ColorChooser >> updateColor: color [
 
@@ -173,5 +172,6 @@ ColorChooser >> updateColor: color [
 { #category : 'initialization' }
 ColorChooser >> updatePresenter [
 
-	colorList items: self defaultColors
+	colorList items: self defaultColors.
+	self updateColor: (currentColor ifNil: [ Color transparent ])
 ]
