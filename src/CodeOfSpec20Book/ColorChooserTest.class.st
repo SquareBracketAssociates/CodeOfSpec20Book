@@ -58,6 +58,18 @@ ColorChooserTest >> testDarker [
 ]
 
 { #category : 'tests' }
+ColorChooserTest >> testDefault [
+	"When a ColorChooser opens without a color,
+	 the color box shows a transparent color and the details are empty."
+
+	chooser := ColorChooser new.
+	chooser open.
+
+	self assert: chooser boxColor equals: Color transparent.
+	self assert: chooser detailsText equals: ''
+]
+
+{ #category : 'tests' }
 ColorChooserTest >> testInitialization [
 	"When a ColorChooser opens on a color,
 	 the color box shows that color and the details show the print string and the HEX code."

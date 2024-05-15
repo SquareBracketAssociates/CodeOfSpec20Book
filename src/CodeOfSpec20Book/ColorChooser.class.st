@@ -1,6 +1,9 @@
 "
 I am a small color chooser that shows the print string and the HEX code of the chosen color.
 The chosen color can be made lighter and darker by pressing buttons.
+
+Open a default color chooser with `ColorChooser new open`.
+Open a color chooser with an initial color with `(ColorChooser on: Color yellow) open`.
 "
 Class {
 	#name : 'ColorChooser',
@@ -45,12 +48,8 @@ ColorChooser >> clickLighterButton [
 { #category : 'initialization' }
 ColorChooser >> connectPresenters [
 
-	colorList whenSelectionChangedDo: [ :selection | | details |
-		details := selection selectedItem
-			ifNil: [
-				colorBox canvas background: Color transparent; signalUpdate.
-				colorDetails text: '' ]
-			ifNotNil: [ :selectedColor | self updateColor: selectedColor ] ]
+	colorList whenSelectionChangedDo: [ :selection |
+		self updateColor: selection selectedItem ]
 ]
 
 { #category : 'private' }
@@ -164,14 +163,20 @@ ColorChooser >> setModelBeforeInitialization: aColor [
 { #category : 'private' }
 ColorChooser >> updateColor: color [
 
+	| details |
 	currentColor := color.
-	colorBox canvas background: currentColor; signalUpdate.
-	colorDetails text: (self detailsFor: currentColor)
+	colorBox canvas
+		background: (currentColor ifNil: [ Color transparent ]);
+		signalUpdate.
+	details := currentColor ifNil: [ '' ] ifNotNil: [ self detailsFor: currentColor ].
+	colorDetails text: details
 ]
 
 { #category : 'initialization' }
 ColorChooser >> updatePresenter [
 
+	| initialColor |
+	initialColor := currentColor.
 	colorList items: self defaultColors.
-	self updateColor: (currentColor ifNil: [ Color transparent ])
+	self updateColor: initialColor
 ]
