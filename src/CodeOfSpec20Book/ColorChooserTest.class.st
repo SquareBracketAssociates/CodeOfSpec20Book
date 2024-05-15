@@ -19,7 +19,8 @@ ColorChooserTest >> tearDown [
 { #category : 'tests' }
 ColorChooserTest >> testChooseColor [
 	"When the user chooses a color in the list,
-	 the color box shows the color and the details show the print string and the HEX code."
+	 the color box shows the color
+	 and the details show the print string and the HEX code."
 
 	chooser := ColorChooser new.
 	chooser open.
@@ -60,7 +61,8 @@ ColorChooserTest >> testDarker [
 { #category : 'tests' }
 ColorChooserTest >> testDefault [
 	"When a ColorChooser opens without a color,
-	 the color box shows a transparent color and the details are empty."
+	 the color box shows a transparent color
+	 and the details are empty."
 
 	chooser := ColorChooser new.
 	chooser open.
@@ -72,7 +74,8 @@ ColorChooserTest >> testDefault [
 { #category : 'tests' }
 ColorChooserTest >> testInitialization [
 	"When a ColorChooser opens on a color,
-	 the color box shows that color and the details show the print string and the HEX code."
+	 the color box shows that color
+	 and the details show the print string and the HEX code."
 
 	chooser := ColorChooser on: Color palePeach.
 	chooser open.
