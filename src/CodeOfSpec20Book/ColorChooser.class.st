@@ -61,11 +61,6 @@ ColorChooser >> darker [
 { #category : 'private' }
 ColorChooser >> defaultColors [
 
-	"^ OrderedCollection new
-		addAll: (Color red wheel: 20);
-		add: Color white;
-		add: Color black;
-		yourself."
 	^ {
 		Color red .
 		Color orange .
