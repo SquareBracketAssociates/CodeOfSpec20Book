@@ -62,7 +62,7 @@ ImdbFilmListPresenter >> addFilm [
 	self updatePresenter
 ]
 
-{ #category : 'testing support' }
+{ #category : 'test support' }
 ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [
 
 	filmList clickAtIndex: anIndex
@@ -84,13 +84,13 @@ ImdbFilmListPresenter >> defaultLayout [
 		  yourself
 ]
 
-{ #category : 'testing support' }
+{ #category : 'test support' }
 ImdbFilmListPresenter >> detail [
 
 	^ detail
 ]
 
-{ #category : 'testing support' }
+{ #category : 'test support' }
 ImdbFilmListPresenter >> filmList [
 
 	^ filmList
