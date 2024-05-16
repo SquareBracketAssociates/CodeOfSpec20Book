@@ -14,33 +14,18 @@ Class {
 	#tag : 'Chapter08'
 }
 
-{ #category : 'specs' }
-ProtocolViewerPresenter class >> defaultLayout [
-	^ self verticalLayout
-]
-
-{ #category : 'specs' }
+{ #category : 'examples' }
 ProtocolViewerPresenter class >> example [
 
 	self new open
 ]
 
-{ #category : 'specs' }
-ProtocolViewerPresenter class >> horizontalLayout [
-	^ SpBoxLayout newLeftToRight 
-			add: #models; 
-			add: #api; 
-			add: #events;
-			yourself
-]
+{ #category : 'examples' }
+ProtocolViewerPresenter class >> exampleHorizontal [
 
-{ #category : 'specs' }
-ProtocolViewerPresenter class >> verticalLayout [
-	^ SpBoxLayout newTopToBottom 
-			add: #models; 
-			add: #api; 
-			add: #events;
-			yourself
+	| instance |
+    instance := self new.
+    instance openWithLayout: instance horizontalLayout
 ]
 
 { #category : 'initialization' }
@@ -52,8 +37,8 @@ ProtocolViewerPresenter >> connectPresenters [
 		events resetSelection.
 		class := selection selectedItem.
 		class
-			ifNil: [ 
-				api items: #(). 
+			ifNil: [
+				api items: #().
 				events items: #() ]
 			ifNotNil: [
 				api items: (self methodsIn: class for: 'api').
@@ -62,17 +47,23 @@ ProtocolViewerPresenter >> connectPresenters [
 	api whenSelectionChangedDo: [ :selection |
  		selection selectedItem ifNotNil: [ events resetSelection ] ].
 	events whenSelectionChangedDo: [ :selection |
-		selection selectedItem ifNotNil: [ api resetSelection ] ].
+		selection selectedItem ifNotNil: [ api resetSelection ] ]
 ]
 
-{ #category : 'layouts' }
+{ #category : 'layout' }
 ProtocolViewerPresenter >> defaultLayout [
+
 	^ self verticalLayout
 ]
 
-{ #category : 'layouts' }
+{ #category : 'layout' }
 ProtocolViewerPresenter >> horizontalLayout [
-	^ self class horizontalLayout
+
+	^ SpBoxLayout newLeftToRight
+		add: #models;
+		add: #api;
+		add: #events;
+		yourself
 ]
 
 { #category : 'initialization' }
@@ -85,38 +76,48 @@ ProtocolViewerPresenter >> initializePresenters [
 	api label: 'api'.
 	events label: 'api-events'.
 
-	self focusOrder 
-		add: models; 
-		add: api; 
+	self focusOrder
+		add: models;
+		add: api;
 		add: events
 ]
 
 { #category : 'initialization' }
 ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
+
 	aWindowPresenter title: 'Protocol viewer'
 ]
 
-{ #category : 'helpers' }
+{ #category : 'private' }
 ProtocolViewerPresenter >> methodsIn: class for: protocol [
+
 	^ (class methodsInProtocol: protocol) sorted: [ :a :b | a selector < b selector ]
 ]
 
-{ #category : 'layouts' }
+{ #category : 'layout' }
 ProtocolViewerPresenter >> verticalLayout [
-	^ self class verticalLayout 
+
+	^ SpBoxLayout newTopToBottom
+		add: #models;
+		add: #api;
+		add: #events;
+		yourself
 ]
 
-{ #category : 'action' }
+{ #category : 'api' }
 ProtocolViewerPresenter >> whenSelectionInAPIChanged: aBlock [
+
 	api whenSelectionChangedDo: aBlock
 ]
 
-{ #category : 'action' }
+{ #category : 'api' }
 ProtocolViewerPresenter >> whenSelectionInClassChanged: aBlock [
+
 	models whenSelectionChangedDo: aBlock
 ]
 
-{ #category : 'action' }
+{ #category : 'api' }
 ProtocolViewerPresenter >> whenSelectionInEventChanged: aBlock [
+
 	events whenSelectionChangedDo: aBlock
 ]

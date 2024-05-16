@@ -17,10 +17,18 @@ Class {
 	#tag : 'Chapter08'
 }
 
+{ #category : 'examples' }
+ProtocolCodeBrowserPresenter class >> example [
+
+	<script>
+	self new open
+]
+
 { #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> connectPresenters [
 
-	viewer whenSelectionInClassChanged: [ :selection | text behavior: selection selectedItem ].
+	viewer whenSelectionInClassChanged: [ :selection |
+		text behavior: selection selectedItem ].
 	viewer whenSelectionInAPIChanged: [ :selection |
 		selection selectedItem
 			ifNotNil: [ :item | text text: item sourceCode ] ].
@@ -29,29 +37,21 @@ ProtocolCodeBrowserPresenter >> connectPresenters [
 			ifNotNil: [ :item | text text: item sourceCode ] ]
 ]
 
-{ #category : 'initialization' }
+{ #category : 'layout' }
 ProtocolCodeBrowserPresenter >> defaultLayout [
-	
+
 	^ SpBoxLayout newTopToBottom
-			add: (SpBoxLayout newHorizontal add: #viewer ; yourself);
-			add: #text;
-			yourself
+		add: (SpBoxLayout newLeftToRight add: #viewer; yourself);
+		add: #text;
+		yourself
 ]
 
 { #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializePresenters [
-	text := self instantiate: SpCodePresenter.
-	viewer := self instantiate: ProtocolViewerPresenter with: ProtocolViewerPresenter horizontalLayout.
-	text syntaxHighlight: true.
-	self focusOrder
-		add: viewer;
-		add: text
-]
 
-{ #category : 'initialization' }
-ProtocolCodeBrowserPresenter >> initializePresenters2 [
 	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter.
+	viewer layout: viewer horizontalLayout.
 	text syntaxHighlight: true.
 	self focusOrder
 		add: viewer;
@@ -60,5 +60,6 @@ ProtocolCodeBrowserPresenter >> initializePresenters2 [
 
 { #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
+
 	aWindowPresenter title: 'Spec Protocol Browser'
 ]
