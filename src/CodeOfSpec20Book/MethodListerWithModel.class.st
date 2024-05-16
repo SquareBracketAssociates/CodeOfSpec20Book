@@ -2,22 +2,22 @@
 I'm the core of the logic to have a presenter using a model and that reacts to model changes.
 
 
-Here is how to get the example.
+Here is how to open the example.
 ```
-(SpMethodListerWithModel on: Point) open
+(MethodListerWithModel on: Point) open
 ```
 
-The following code snippet shows that the sub presenters get updated after model changes.
+The following code snippet shows that the subpresenters are updated after model changes.
 
 ```
 	| lister | 
-	lister := SpMethodListerWithModel on: Point.
+	lister := MethodListerWithModel on: Point.
 	lister open.
 	lister model: Rectangle
 ```
 "
 Class {
-	#name : 'SpMethodListerWithModel',
+	#name : 'MethodListerWithModel',
 	#superclass : 'SpPresenterWithModel',
 	#instVars : [
 		'list'
@@ -28,18 +28,21 @@ Class {
 }
 
 { #category : 'layout' }
-SpMethodListerWithModel class >> defaultLayout [ 
-	^ SpBoxLayout newTopToBottom add: #list ; yourself
+MethodListerWithModel >> defaultLayout [
+
+	^ SpBoxLayout newTopToBottom
+		add: #list;
+		yourself
 ]
 
 { #category : 'initialization' }
-SpMethodListerWithModel >> initializePresenters [ 
-	list := self newList.
-	
+MethodListerWithModel >> initializePresenters [
+
+	list := self newList
 ]
 
 { #category : 'initialization' }
-SpMethodListerWithModel >> modelChanged [
+MethodListerWithModel >> modelChanged [
 
 	list items: self model selectors sorted
 ]
