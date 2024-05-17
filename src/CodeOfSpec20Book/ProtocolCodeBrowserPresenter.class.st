@@ -31,10 +31,10 @@ ProtocolCodeBrowserPresenter >> connectPresenters [
 		text behavior: selection selectedItem ].
 	viewer whenSelectionInAPIChanged: [ :selection |
 		selection selectedItem
-			ifNotNil: [ :item | text text: item sourceCode ] ].
+			ifNotNil: [ :item | text beForMethod: item; text: item sourceCode ] ].
 	viewer whenSelectionInEventChanged: [ :selection |
 		selection selectedItem
-			ifNotNil: [ :item | text text: item sourceCode ] ]
+			ifNotNil: [ :item | text beForMethod: item; text: item sourceCode ] ]
 ]
 
 { #category : 'layout' }
