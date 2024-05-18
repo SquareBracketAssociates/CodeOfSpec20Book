@@ -8,7 +8,7 @@ Class {
 
 { #category : 'examples' }
 WindowExamplePresenter3 class >> exampleDialogWhenClosed [
-	<example>
+
 	| we diag |
 	we := WindowExamplePresenter3 new. 
 	diag := we openDialogWithSpec.
@@ -20,7 +20,7 @@ WindowExamplePresenter3 class >> exampleDialogWhenClosed [
 
 { #category : 'examples' }
 WindowExamplePresenter3 class >> exampleWhenClosed [
-	<example>
+
 	| we |
 	we := WindowExamplePresenter3 new. 
 	we openWithSpec.

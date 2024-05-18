@@ -28,7 +28,6 @@ Class {
 
 { #category : 'examples' }
 ImdbFilmListPresenter class >> example [
-	<script>
 
 	| app presenter |
 	app := ImdbApp new. 
@@ -38,7 +37,6 @@ ImdbFilmListPresenter class >> example [
 
 { #category : 'examples' }
 ImdbFilmListPresenter class >> exampleWithListBelow [
-	<script>
 	
 	| app presenter |
 	app := ImdbApp new. 

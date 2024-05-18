@@ -20,7 +20,6 @@ Class {
 { #category : 'examples' }
 ProtocolCodeBrowserPresenter class >> example [
 
-	<script>
 	self new open
 ]
 

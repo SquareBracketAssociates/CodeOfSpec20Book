@@ -16,7 +16,6 @@ Class {
 { #category : 'examples' }
 ProtocolMethodListPresenter class >> example [
 
-	<script>
 	self new open
 ]
 

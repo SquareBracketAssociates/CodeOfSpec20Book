@@ -20,7 +20,6 @@ Class {
 { #category : 'examples' }
 WidgetClassListPresenter class >> example [
 
-	<script>
 	self new open
 ]
 

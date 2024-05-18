@@ -8,7 +8,7 @@ Class {
 
 { #category : 'examples' }
 WindowExamplePresenter2 class >> example6 [
-	<example>
+
 	| we diag |
 	we := WindowExamplePresenter2 new. 
 	diag := we openDialogWithSpec

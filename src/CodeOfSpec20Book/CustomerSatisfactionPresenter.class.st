@@ -14,7 +14,6 @@ Class {
 
 { #category : 'examples' }
 CustomerSatisfactionPresenter class >> example [
-	<example>
 
 	^ self new open
 ]
