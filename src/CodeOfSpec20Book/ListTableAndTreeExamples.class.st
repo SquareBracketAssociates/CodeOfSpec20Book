@@ -1,3 +1,6 @@
+"
+I collect examples of lists, tables, and trees. See the `examples` protocol at the class side.
+"
 Class {
 	#name : 'ListTableAndTreeExamples',
 	#superclass : 'SpPresenter',
@@ -33,7 +36,7 @@ ListTableAndTreeExamples class >> exampleComponentList [
 ListTableAndTreeExamples class >> exampleFilteringListWithFilterAtBottom [
 
 	SpFilteringListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		open;
 		withWindowDo: [ :window |
 			window title: 'SpFilteringListPresenter example' ]
@@ -43,7 +46,7 @@ ListTableAndTreeExamples class >> exampleFilteringListWithFilterAtBottom [
 ListTableAndTreeExamples class >> exampleFilteringListWithFilterAtTop [
 
 	SpFilteringListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		openWithLayout: SpFilteringListPresenter topLayout;
 		withWindowDo: [ :window |
 			window title: 'SpFilteringListPresenter example' ]
@@ -53,7 +56,7 @@ ListTableAndTreeExamples class >> exampleFilteringListWithFilterAtTop [
 ListTableAndTreeExamples class >> exampleFilteringListWithGivenFilter [
 
 	SpFilteringListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		openWithLayout: SpFilteringListPresenter topLayout;
 		applyFilter: 'ZZ';
 		withWindowDo: [ :window |
@@ -64,7 +67,7 @@ ListTableAndTreeExamples class >> exampleFilteringListWithGivenFilter [
 ListTableAndTreeExamples class >> exampleFilteringSelectableList [
 
 	(SpFilteringSelectableListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		layout: SpFilteringListPresenter topLayout;
 		applyFilter: 'ZZ';
 		asWindow)
@@ -76,7 +79,7 @@ ListTableAndTreeExamples class >> exampleFilteringSelectableList [
 ListTableAndTreeExamples class >> exampleListWithClasses [
 
 	SpListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		open
 ]
 
@@ -84,8 +87,8 @@ ListTableAndTreeExamples class >> exampleListWithClasses [
 ListTableAndTreeExamples class >> exampleListWithClassesAndHeader [
 
 	SpListPresenter new
-		items: Smalltalk globals allClasses;
-		headerTitle: 'All Classes';
+		items: Collection withAllSubclasses;
+		headerTitle: 'All Collection Classes';
 		open
 ]
 
@@ -93,8 +96,8 @@ ListTableAndTreeExamples class >> exampleListWithClassesAndHeader [
 ListTableAndTreeExamples class >> exampleListWithClassesAndHiddenHeader [
 
 	SpListPresenter new
-		items: Smalltalk globals allClasses;
-		headerTitle: 'All Classes';
+		items: Collection withAllSubclasses;
+		headerTitle: 'All Collection Classes';
 		hideHeaderTitle;
 		open
 ]
@@ -103,7 +106,7 @@ ListTableAndTreeExamples class >> exampleListWithClassesAndHiddenHeader [
 ListTableAndTreeExamples class >> exampleListWithDecoratedItems [
 
 	SpListPresenter new
-		items: self environment allClasses;
+		items: Collection withAllSubclasses;
 		displayIcon: [ :aClass | self iconNamed: aClass systemIconName ];
 		displayColor: [ :aClass |
 			(aClass name endsWith: 'Test')
@@ -120,7 +123,7 @@ ListTableAndTreeExamples class >> exampleListWithDecoratedItems [
 ListTableAndTreeExamples class >> exampleListWithMultipleSelection [
 
 	SpListPresenter new
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		beMultipleSelection;
 		open
 ]
@@ -230,7 +233,7 @@ ListTableAndTreeExamples class >> exampleTableWithSortableColumns [
 		addColumn: ((SpStringTableColumn
 				title: 'Methods'
 				evaluated: [ :c | c methodDictionary size ]) sortFunction: methodCountSorter);
-		items: Smalltalk globals allClasses;
+		items: Collection withAllSubclasses;
 		open
 ]
 
