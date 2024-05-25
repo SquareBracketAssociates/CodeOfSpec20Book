@@ -69,7 +69,7 @@ ListTableAndTreeExamples class >> exampleFilteringSelectableList [
 	(SpFilteringSelectableListPresenter new
 		items: Collection withAllSubclasses;
 		layout: SpFilteringListPresenter topLayout;
-		applyFilter: 'ZZ';
+		applyFilter: 'set';
 		asWindow)
 			title: 'SpFilteringSelectableListPresenter example';
 			open
@@ -109,11 +109,11 @@ ListTableAndTreeExamples class >> exampleListWithDecoratedItems [
 		items: Collection withAllSubclasses;
 		displayIcon: [ :aClass | self iconNamed: aClass systemIconName ];
 		displayColor: [ :aClass |
-			(aClass name endsWith: 'Test')
+			(aClass name endsWith: 'Set')
 				ifTrue: [ Color green ]
-				ifFalse: [ Smalltalk ui theme textColor ] ];
+				ifFalse: [ self theme textColor ] ];
 		displayItalic: [ :aClass |
-			aClass name includesSubstring: 'abstract' caseSensitive: false ];
+			aClass isAbstract ];
 		displayBold: [ :aClass | aClass hasSubclasses ];
 		displayUnderline: [ :aClass | aClass numberOfMethods > 10 ];
 		open
