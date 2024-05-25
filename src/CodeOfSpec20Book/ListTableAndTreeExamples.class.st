@@ -112,8 +112,7 @@ ListTableAndTreeExamples class >> exampleListWithDecoratedItems [
 			(aClass name endsWith: 'Set')
 				ifTrue: [ Color green ]
 				ifFalse: [ self theme textColor ] ];
-		displayItalic: [ :aClass |
-			aClass isAbstract ];
+		displayItalic: [ :aClass | aClass isAbstract ];
 		displayBold: [ :aClass | aClass hasSubclasses ];
 		displayUnderline: [ :aClass | aClass numberOfMethods > 10 ];
 		open
