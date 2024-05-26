@@ -1,6 +1,14 @@
+"
+I inform the user when a window closes.
+"
 Class {
 	#name : 'WindowExamplePresenter3',
-	#superclass : 'WindowExamplePresenter',
+	#superclass : 'SpPresenter',
+	#classTraits : '{} + TraitedClass',
+	#instVars : [
+		'minusButton',
+		'plusButton'
+	],
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'
@@ -9,39 +17,44 @@ Class {
 { #category : 'examples' }
 WindowExamplePresenter3 class >> exampleDialogWhenClosed [
 
-	| we diag |
-	we := WindowExamplePresenter3 new. 
-	diag := we openDialogWithSpec.
-	diag
-		okAction: [Transcript show: 'okAction'];
-		cancelAction: [Transcript show: 'cancelAction'].
-	
+	| presenter dialog |
+	presenter := self new.
+	dialog := presenter openDialog.
+	dialog
+		okAction: [ 'okAction' crTrace ];
+		cancelAction: [ 'cancelAction' crTrace ];
+		whenClosedDo: [ self inform: 'Bye bye!' ]
 ]
 
 { #category : 'examples' }
 WindowExamplePresenter3 class >> exampleWhenClosed [
 
-	| we |
-	we := WindowExamplePresenter3 new. 
-	we openWithSpec.
-	we window close.
-	
+	| presenter window |
+	presenter := self new.
+	window := presenter open.
+	window close
+]
+
+{ #category : 'layout' }
+WindowExamplePresenter3 >> defaultLayout [
+
+	^ SpBoxLayout newLeftToRight
+		add: #plusButton;
+		add: #minusButton;
+		yourself
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter3 >> initializePresenters [
-   button1 := self newButton.
-   button2 := self newButton.
-   button1 label: '+'.
-   button2 label: '-'.
 
-
+	plusButton := self newButton.
+	minusButton := self newButton.
+	plusButton label: '+'.
+	minusButton label: '-'
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter3 >> initializeWindow: aWindowPresenter [
 
-	aWindowPresenter whenOpenedDo: [ UIManager default inform: 'When opened' ].
-	aWindowPresenter whenClosedDo: [ UIManager default inform: 'When closed' ].
-	
+	aWindowPresenter whenClosedDo: [ self inform: 'When closed' ]
 ]

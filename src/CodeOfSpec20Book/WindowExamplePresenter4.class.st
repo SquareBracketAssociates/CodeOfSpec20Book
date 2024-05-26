@@ -1,38 +1,63 @@
 "
-Pay attention nothing is working in this presenter
-
-```
-| we |
-we := WindowExamplePresenter4 new.
-we extent: 100@80.
-we open
-```
+I set the initial extent of the window. Clicking the buttons resizes the window.
 "
 Class {
 	#name : 'WindowExamplePresenter4',
 	#superclass : 'SpPresenter',
 	#instVars : [
-		'button1',
-		'button2'
+		'minusButton',
+		'plusButton'
 	],
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'
 }
 
-{ #category : 'specs' }
-WindowExamplePresenter4 class >> defaultSpec [
-   ^ SpBoxLayout newLeftToRight
-         add: #button1; add: #button2; yourself
+{ #category : 'examples' }
+WindowExamplePresenter4 class >> exampleOpen [
+
+	self new open
+]
+
+{ #category : 'examples' }
+WindowExamplePresenter4 class >> exampleOpenFixedSize [
+
+	| presenter |
+	presenter := WindowExamplePresenter new open.
+	presenter window beUnresizeable
+]
+
+{ #category : 'examples' }
+WindowExamplePresenter4 class >> exampleSettingAndChangingExtent [
+
+	| windowPresenter |
+	 windowPresenter := self new asWindow.
+	 windowPresenter initialExtent: 300@80.
+	 windowPresenter open
+]
+
+{ #category : 'layout' }
+WindowExamplePresenter4 >> defaultLayout [
+
+	^ SpBoxLayout newLeftToRight
+		add: #plusButton;
+		add: #minusButton;
+		yourself
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter4 >> initializePresenters [
 
-  button1 := self newButton.
-  button2 := self newButton.
-  button1 label: '+'.
-  button2 label: '-'.
-  button1 action: [ self window extent: 500@200].
-  button2 action: [ self window extent: 200@100]
+	plusButton := self newButton.
+	minusButton := self newButton.
+	plusButton label: '+'.
+	minusButton label: '-'.
+	plusButton action: [ self window resize: 500@200].
+	minusButton action: [ self window resize: 200@100]
+]
+
+{ #category : 'initialization' }
+WindowExamplePresenter4 >> initializeWindow: aWindowPresenter [
+
+	aWindowPresenter initialExtent: 80@100
 ]

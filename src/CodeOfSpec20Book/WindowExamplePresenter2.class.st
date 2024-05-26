@@ -1,42 +1,50 @@
+"
+I ask confirmation before closing the window.
+
+Due to a [bug in Spec](https://github.com/pharo-spec/Spec/issues/1547), the `whenWillCloseDo:` block is triggered twice.
+"
 Class {
 	#name : 'WindowExamplePresenter2',
-	#superclass : 'WindowExamplePresenter',
+	#superclass : 'SpPresenter',
+	#classTraits : '{} + TraitedClass',
+	#instVars : [
+		'minusButton',
+		'plusButton'
+	],
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'
 }
 
 { #category : 'examples' }
-WindowExamplePresenter2 class >> example6 [
+WindowExamplePresenter2 class >> exampleCloseWindowAfterConfirmation [
 
-	| we diag |
-	we := WindowExamplePresenter2 new. 
-	diag := we openDialogWithSpec
-		okAction: [Transcript show: 'okAction'];
-		cancelAction: [Transcript show: 'cancelAction'];
-		whenClosedDo: [ Transcript show: 'whenClosedDo']
+	self new open
 
+]
 
+{ #category : 'layout' }
+WindowExamplePresenter2 >> defaultLayout [
+
+	^ SpBoxLayout newLeftToRight
+		add: #plusButton;
+		add: #minusButton;
+		yourself
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter2 >> initializePresenters [
-   button1 := self newButton.
-   button2 := self newButton.
-   button1 label: '+'.
-   button2 label: '-'.
-	self window okToChange
 
+	plusButton := self newButton.
+	minusButton := self newButton.
+	plusButton label: '+'.
+	minusButton label: '-'
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter2 >> initializeWindow: aWindowPresenter [
-  
-	aWindowPresenter askOkToClose: true
-]
 
-{ #category : 'initialization' }
-WindowExamplePresenter2 >> okToChange [
-
-	^ false
+	aWindowPresenter whenWillCloseDo: [ :announcement |
+		(self confirm: 'Are you sure that you want to close the window?')
+			ifFalse: [ announcement denyClose ] ]
 ]

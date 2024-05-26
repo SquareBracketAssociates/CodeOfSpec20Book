@@ -1,104 +1,58 @@
 "
-```
-| we |
-we := WindowExamplePresenter new.
-we open.
-we openWithSpec: #defaultSpec.
-we openWithSpecLayout: we defaultSpec
-```
-
-```
-| wewin |
-wewin := WindowExamplePresenter new open.
-wewin window beUnresizeable
-```
+I show a simple UI with plus and minus buttons without actions.
 "
 Class {
 	#name : 'WindowExamplePresenter',
 	#superclass : 'SpPresenter',
+	#classTraits : '{} + TraitedClass',
 	#instVars : [
-		'button1',
-		'button2'
+		'minusButton',
+		'plusButton'
 	],
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'
 }
 
+{ #category : 'specs' }
+WindowExamplePresenter class >> exampleOpen [
+
+	self new open
+
+]
+
+{ #category : 'specs' }
+WindowExamplePresenter class >> exampleOpenAsDialog [
+
+	| presenter dialog |
+	presenter := self new.
+	dialog := presenter openDialog
+]
+
+{ #category : 'specs' }
+WindowExamplePresenter class >> exampleOpenAsDialogWithButtonActions [
+
+	| presenter dialog |
+	presenter := self new.
+	dialog := presenter openDialog
+		okAction: [ 'okAction' crTrace ];
+		cancelAction: [ 'cancelAction' crTrace ]
+]
+
 { #category : 'layout' }
-WindowExamplePresenter class >> defaultLayout [
-   ^ SpBoxLayout newLeftToRight
-         add: #button1; add: #button2; yourself
-]
+WindowExamplePresenter >> defaultLayout [
 
-{ #category : 'specs' }
-WindowExamplePresenter class >> example1 [
-	<example>
-	| we |
-	we := WindowExamplePresenter new.
-	we openWithSpec.
-
-]
-
-{ #category : 'specs' }
-WindowExamplePresenter class >> example2 [
-
-	<example>
-	| we |
-	we := WindowExamplePresenter new.
-	we openWithLayout: #defaultSpec
-]
-
-{ #category : 'specs' }
-WindowExamplePresenter class >> example3 [
-	<example>
-	| we |
-	we := WindowExamplePresenter new.
-	we openWithSpecLayout: we defaultSpec
-
-
-]
-
-{ #category : 'specs' }
-WindowExamplePresenter class >> example4ClosingWorkingExpressedAtOpenDialogLevel [
-	<example>
-	| we diag |
-	we := WindowExamplePresenter new. 
-	diag := we openDialogWithSpec
-		okAction: [Transcript show: 'okAction'];
-		cancelAction: [Transcript show: 'cancelAction'];
-		whenClosedDo: [ Transcript show: 'whenClosedDo']
-
-
-]
-
-{ #category : 'specs' }
-WindowExamplePresenter class >> example5 [
-
-	<example>
-	| we diag |
-	we := WindowExamplePresenter new.
-	diag := we openDialog
-		        okAction: [ Transcript show: 'okAction' ];
-		        cancelAction: [ Transcript show: 'cancelAction' ];
-		        whenClosedDo: [ Transcript show: 'whenClosedDo' ]
-]
-
-{ #category : 'specs' }
-WindowExamplePresenter class >> example6WhenClosed [
-
-	| we |
-	we := WindowExamplePresenter new. 
-	we openWithSpec
-		okAction: [Transcript show: 'okAction'];
-		cancelAction: [Transcript show: 'cancelAction'].
- 
+	^ SpBoxLayout newLeftToRight
+		add: #plusButton;
+		add: #minusButton;
+		yourself
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter >> initializePresenters [
-   button1 := self newButton.
-   button2 := self newButton.
-   button1 label: '+'.
-   button2 label: '-'
+
+	plusButton := self newButton.
+	minusButton := self newButton.
+	plusButton label: '+'.
+	minusButton label: '-'
 ]

@@ -1,42 +1,75 @@
 "
-```
-| wewin |
-wewin := WindowExamplePresenter5 new open.
-wewin window beUnresizeable
-```
+I set the window title.
 "
 Class {
 	#name : 'WindowExamplePresenter5',
 	#superclass : 'SpPresenter',
+	#classTraits : '{} + TraitedClass',
 	#instVars : [
-		'button1',
-		'button2'
+		'minusButton',
+		'plusButton'
 	],
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'
 }
 
-{ #category : 'layout' }
-WindowExamplePresenter5 class >> defaultLayout [
+{ #category : 'examples' }
+WindowExamplePresenter5 class >> exampleOpenWithoutWindowDecoration [
 
-   ^ SpBoxLayout newLeftToRight
-         add: #button1; add: #button2; yourself
+	| presenter |
+	presenter := self new open.
+	presenter window
+	   removeCollapseBox;
+	   removeExpandBox;
+	   removeCloseBox;
+	   removeMenuBox
+]
+
+{ #category : 'examples' }
+WindowExamplePresenter5 class >> exampleWithAboutText [
+
+	| windowPresenter |
+	 windowPresenter := WindowExamplePresenter new asWindow.
+	 windowPresenter aboutText: 'Click + to grow, - to shrink.'.
+	 windowPresenter open
+]
+
+{ #category : 'examples' }
+WindowExamplePresenter5 class >> exampleWithChangingTitle [
+
+	| presenter |
+	presenter := self new.
+	presenter open.
+	presenter window title: 'I am different!'
+]
+
+{ #category : 'examples' }
+WindowExamplePresenter5 class >> exampleWithTitle [
+
+	self new open
+]
+
+{ #category : 'layout' }
+WindowExamplePresenter5 >> defaultLayout [
+
+	^ SpBoxLayout newLeftToRight
+		add: #plusButton;
+		add: #minusButton;
+		yourself
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter5 >> initializePresenters [
 
-  button1 := self newButton.
-  button2 := self newButton.
-  button1 label: '+'.
-  button2 label: '-'.
- 
+	plusButton := self newButton.
+	minusButton := self newButton.
+	plusButton label: '+'.
+	minusButton label: '-'
 ]
 
 { #category : 'initialization' }
 WindowExamplePresenter5 >> initializeWindow: aWindowPresenter [
 
-  aWindowPresenter initialExtent: 80@100.
   aWindowPresenter title: 'Click to grow or shrink.'
 ]
