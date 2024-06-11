@@ -67,7 +67,7 @@ AlignmentExample >> initializePresenters [
 ]
 
 { #category : 'private' }
-AlignmentExample >> newLableOne [
+AlignmentExample >> newLabelOne [
 
 	^ self newLabel
 		label: 'One';
@@ -75,7 +75,7 @@ AlignmentExample >> newLableOne [
 ]
 
 { #category : 'private' }
-AlignmentExample >> newLableTwo [
+AlignmentExample >> newLabelTwo [
 
 	^ self newLabel
 		label: 'two';
@@ -87,8 +87,8 @@ AlignmentExample >> newTile: alignmentBlock [
 
 	| tileLayout |
 	tileLayout := SpBoxLayout newTopToBottom
-		add: self newLableOne;
-		add: self newLableTwo;
+		add: self newLabelOne;
+		add: self newLabelTwo;
 		yourself.
 	alignmentBlock value: tileLayout.
 	^ SpPresenter new
