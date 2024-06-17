@@ -49,12 +49,6 @@ AthensHello >> initialize [
 	surface := AthensCairoSurface extent: self extent
 ]
 
-{ #category : 'opening' }
-AthensHello >> open [
-
-	<script: 'self new openInWindow'>
-]
-
 { #category : 'initialization' }
 AthensHello >> renderAthens [
 
