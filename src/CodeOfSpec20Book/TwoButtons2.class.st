@@ -4,7 +4,6 @@ I use a horizontal box layout with buttons that are not expanded.
 Class {
 	#name : 'TwoButtons2',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'button1',
 		'button2'

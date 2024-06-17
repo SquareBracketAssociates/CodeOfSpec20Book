@@ -4,7 +4,6 @@ I use a vertical box layout with three buttons. Spacing and padding is applied, 
 Class {
 	#name : 'TwoButtons3',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'button1',
 		'button2',

@@ -4,7 +4,6 @@ I use a builder to create a grid layout for a small form.
 Class {
 	#name : 'GridExampleWithBuilder',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'promptLabel',
 		'nameText',

@@ -4,7 +4,6 @@ See the examples at the class side.
 Class {
 	#name : 'ColorSelectorExample',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
 	#tag : 'Chapter10'

@@ -4,7 +4,6 @@ I use a grid layout for a small form.
 Class {
 	#name : 'GridExample',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'promptLabel',
 		'nameText',

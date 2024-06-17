@@ -4,7 +4,6 @@ I set the window title.
 Class {
 	#name : 'WindowExamplePresenter5',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'minusButton',
 		'plusButton'

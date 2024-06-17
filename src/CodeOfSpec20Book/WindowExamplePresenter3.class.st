@@ -4,7 +4,6 @@ I inform the user when a window closes.
 Class {
 	#name : 'WindowExamplePresenter3',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'minusButton',
 		'plusButton'

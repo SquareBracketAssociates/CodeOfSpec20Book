@@ -4,7 +4,6 @@ I show a simple UI with plus and minus buttons without actions.
 Class {
 	#name : 'WindowExamplePresenter',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'minusButton',
 		'plusButton'

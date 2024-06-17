@@ -6,7 +6,6 @@ Due to a [bug in Spec](https://github.com/pharo-spec/Spec/issues/1547), the `whe
 Class {
 	#name : 'WindowExamplePresenter2',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'minusButton',
 		'plusButton'

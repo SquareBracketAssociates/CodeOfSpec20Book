@@ -4,7 +4,6 @@ A support adding buttons with random numbers as label, and I support removing th
 Class {
 	#name : 'DynamicButtons',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'addButton',
 		'removeButton',

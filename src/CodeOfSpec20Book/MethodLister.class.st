@@ -10,7 +10,6 @@ In contrast with `MethodListerWithModel` I do not handle a change of model (my s
 Class {
 	#name : 'MethodLister',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'sourceClass',
 		'list'
