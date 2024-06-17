@@ -1,9 +1,9 @@
 Class {
 	#name : 'ImdbMorphicConfiguration',
 	#superclass : 'SpMorphicConfiguration',
-	#category : 'CodeOfSpec20Book-Chapter05',
+	#category : 'CodeOfSpec20Book-Chapter04',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter05'
+	#tag : 'Chapter04'
 }
 
 { #category : 'configuring' }

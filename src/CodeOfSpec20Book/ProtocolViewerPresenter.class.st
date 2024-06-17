@@ -9,9 +9,9 @@ Class {
 		'api',
 		'events'
 	],
-	#category : 'CodeOfSpec20Book-Chapter08',
+	#category : 'CodeOfSpec20Book-Chapter07',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter08'
+	#tag : 'Chapter07'
 }
 
 { #category : 'examples' }

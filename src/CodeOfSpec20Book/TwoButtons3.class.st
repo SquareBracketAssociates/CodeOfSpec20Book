@@ -9,9 +9,9 @@ Class {
 		'button2',
 		'button3'
 	],
-	#category : 'CodeOfSpec20Book-Chapter11',
+	#category : 'CodeOfSpec20Book-Chapter10',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter11'
+	#tag : 'Chapter10'
 }
 
 { #category : 'layout' }

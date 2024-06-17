@@ -4,9 +4,9 @@ I collect examples of lists, tables, and trees. See the `examples` protocol at t
 Class {
 	#name : 'ListTableAndTreeExamples',
 	#superclass : 'SpPresenter',
-	#category : 'CodeOfSpec20Book-Chapter09',
+	#category : 'CodeOfSpec20Book-Chapter08',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter09'
+	#tag : 'Chapter08'
 }
 
 { #category : 'examples' }

@@ -1,9 +1,9 @@
 Class {
 	#name : 'ProtocolMethodListPresenterTest',
 	#superclass : 'TestCase',
-	#category : 'CodeOfSpec20Book-Chapter08',
+	#category : 'CodeOfSpec20Book-Chapter07',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter08'
+	#tag : 'Chapter07'
 }
 
 { #category : 'tests' }

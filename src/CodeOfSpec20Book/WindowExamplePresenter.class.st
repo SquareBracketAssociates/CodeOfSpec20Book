@@ -8,9 +8,9 @@ Class {
 		'minusButton',
 		'plusButton'
 	],
-	#category : 'CodeOfSpec20Book-Chapter10',
+	#category : 'CodeOfSpec20Book-Chapter09',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter10'
+	#tag : 'Chapter09'
 }
 
 { #category : 'specs' }

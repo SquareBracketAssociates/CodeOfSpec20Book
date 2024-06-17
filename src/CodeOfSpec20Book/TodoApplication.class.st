@@ -4,9 +4,9 @@
 Class {
 	#name : 'TodoApplication',
 	#superclass : 'SpApplication',
-	#category : 'CodeOfSpec20Book-Chapter21',
+	#category : 'CodeOfSpec20Book-Chapter20',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter21'
+	#tag : 'Chapter20'
 }
 
 { #category : 'accessing' }

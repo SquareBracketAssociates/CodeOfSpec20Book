@@ -6,9 +6,9 @@ Open a new `ColorChooser` with `ColorChooserApplication new start`.
 Class {
 	#name : 'ColorChooserApplication',
 	#superclass : 'SpApplication',
-	#category : 'CodeOfSpec20Book-Chapter06',
+	#category : 'CodeOfSpec20Book-Chapter05',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter06'
+	#tag : 'Chapter05'
 }
 
 { #category : 'running' }

@@ -11,9 +11,9 @@ Class {
 	#instVars : [
 		'surface'
 	],
-	#category : 'CodeOfSpec20Book-Chapter16',
+	#category : 'CodeOfSpec20Book-Chapter15',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter16'
+	#tag : 'Chapter15'
 }
 
 { #category : 'accessing' }

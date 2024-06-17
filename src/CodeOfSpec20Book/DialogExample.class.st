@@ -4,9 +4,9 @@ See the examples at the class side.
 Class {
 	#name : 'DialogExample',
 	#superclass : 'SpPresenter',
-	#category : 'CodeOfSpec20Book-Chapter10',
+	#category : 'CodeOfSpec20Book-Chapter09',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter10'
+	#tag : 'Chapter09'
 }
 
 { #category : 'examples' }

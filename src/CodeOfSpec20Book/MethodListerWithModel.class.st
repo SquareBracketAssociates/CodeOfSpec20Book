@@ -22,9 +22,9 @@ Class {
 	#instVars : [
 		'list'
 	],
-	#category : 'CodeOfSpec20Book-Chapter07',
+	#category : 'CodeOfSpec20Book-Chapter06',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter07'
+	#tag : 'Chapter06'
 }
 
 { #category : 'layout' }

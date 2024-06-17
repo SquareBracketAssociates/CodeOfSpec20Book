@@ -11,9 +11,9 @@ Class {
 		'methodList',
 		'button'
 	],
-	#category : 'CodeOfSpec20Book-Chapter12',
+	#category : 'CodeOfSpec20Book-Chapter11',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter12'
+	#tag : 'Chapter11'
 }
 
 { #category : 'private' }
