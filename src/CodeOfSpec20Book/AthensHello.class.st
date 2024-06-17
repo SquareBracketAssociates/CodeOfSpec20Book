@@ -61,5 +61,5 @@ AthensHello >> renderAthens [
 		canvas setFont: font.
 		canvas setPaint: Color pink.
 		canvas pathTransform translateX: 20 Y: 20 + (font getPreciseAscent); scaleBy: 2; rotateByDegrees: 25.
-		"canvas drawString: 'Hello Athens in Pharo/Morphic'" ]
+		canvas drawString: 'Hello Athens in Pharo/Morphic' ]
 ]
