@@ -1,12 +1,12 @@
 "
-This demonstrate how to embed a morph using **SpMorphPresenter**
+I demonstrate how to embed a morph using **SpMorphPresenter**
 
-```smalltalk
-SpAthensHelloPresenter open
+```
+AthensHelloPresenter new open
 ```
 "
 Class {
-	#name : 'SpAthensHelloPresenter',
+	#name : 'AthensHelloPresenter',
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'morphPresenter'
@@ -17,21 +17,21 @@ Class {
 }
 
 { #category : 'instance creation' }
-SpAthensHelloPresenter class >> open [ 
+AthensHelloPresenter class >> open [ 
 
 	self new open
 ]
 
 { #category : 'instance creation' }
-SpAthensHelloPresenter >> defaultLayout [
+AthensHelloPresenter >> defaultLayout [
 
-	^ SpBoxLayout newTopToBottom 
-			add: morphPresenter;
-			yourself 
+	^ SpBoxLayout newTopToBottom
+		add: morphPresenter;
+		yourself
 ]
 
 { #category : 'instance creation' }
-SpAthensHelloPresenter >> initializePresenters [
+AthensHelloPresenter >> initializePresenters [
 
 	morphPresenter := self instantiate: SpMorphPresenter.
 	morphPresenter morph: AthensHello new
