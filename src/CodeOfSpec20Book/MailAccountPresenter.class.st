@@ -1,3 +1,6 @@
+"
+I display `Folder`s and `Email`s based on email status.
+"
 Class {
 	#name : 'MailAccountPresenter',
 	#superclass : 'SpPresenterWithModel',
