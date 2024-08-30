@@ -39,14 +39,13 @@ MailClientPresenter >> defaultLayout [
 MailClientPresenter >> folderOrEmailSelectionChanged [
 
 	| selectedEmail |
-	editedEmail := nil.
-	account hasSelectedEmail
-		ifTrue: [
-			selectedEmail := account selectedItem.
-			selectedEmail isDraft
-				ifTrue: [ editedEmail := selectedEmail].
-			reader updateLayoutForEmail: selectedEmail ]
-		ifFalse: [ reader updateLayoutForNoEmail ]
+	selectedEmail := account hasSelectedEmail
+		ifTrue: [ account selectedItem ]
+		ifFalse: [ nil ].
+	reader read: selectedEmail.
+	editedEmail := (selectedEmail isNotNil and: [ selectedEmail isDraft ])
+		ifTrue: [ selectedEmail ]
+		ifFalse: [ nil ]
 ]
 
 { #category : 'initialization' }

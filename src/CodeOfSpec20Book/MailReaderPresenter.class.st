@@ -43,6 +43,14 @@ MailReaderPresenter >> noEmailLayout [
 ]
 
 { #category : 'updating' }
+MailReaderPresenter >> read: email [
+
+	email
+		ifNil: [ self updateLayoutForNoEmail ]
+		ifNotNil: [ self updateLayoutForEmail: email ]
+]
+
+{ #category : 'updating' }
 MailReaderPresenter >> updateLayoutForEmail: email [
 
 	content model: email.
