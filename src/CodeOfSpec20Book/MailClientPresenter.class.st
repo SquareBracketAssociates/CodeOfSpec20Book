@@ -11,9 +11,9 @@ Class {
 		'statusBar',
 		'editedEmail'
 	],
-	#category : 'CodeOfSpec20Book-Chapter12',
+	#category : 'CodeOfSpec20Book-Chapter12-Presenters',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter12'
+	#tag : 'Chapter12-Presenters'
 }
 
 { #category : 'private' }
