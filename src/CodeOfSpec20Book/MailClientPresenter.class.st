@@ -38,13 +38,11 @@ MailClientPresenter >> defaultLayout [
 { #category : 'private' }
 MailClientPresenter >> folderOrEmailSelectionChanged [
 
-	| selectedEmail |
-	selectedEmail := account hasSelectedEmail
-		ifTrue: [ account selectedItem ]
-		ifFalse: [ nil ].
-	reader read: selectedEmail.
-	editedEmail := (selectedEmail isNotNil and: [ selectedEmail isDraft ])
-		ifTrue: [ selectedEmail ]
+	| selectedFolderOrEmail |
+	selectedFolderOrEmail := account selectedItem.
+	reader read: selectedFolderOrEmail.
+	editedEmail := (self isDraftEmail: selectedFolderOrEmail)
+		ifTrue: [ selectedFolderOrEmail ]
 		ifFalse: [ nil ]
 ]
 
@@ -61,4 +59,10 @@ MailClientPresenter >> initializeWindow: aWindowPresenter [
 	aWindowPresenter
 		title: 'Mail';
 		initialExtent: 650@500
+]
+
+{ #category : 'private' }
+MailClientPresenter >> isDraftEmail: folderOrEmailOrNil [
+
+	^ folderOrEmailOrNil isNotNil and: [ folderOrEmailOrNil isEmail and: [ folderOrEmailOrNil isDraft ] ]
 ]

@@ -43,11 +43,11 @@ MailReaderPresenter >> noEmailLayout [
 ]
 
 { #category : 'updating' }
-MailReaderPresenter >> read: email [
+MailReaderPresenter >> read: folderOrEmail [
 
-	email
-		ifNil: [ self updateLayoutForNoEmail ]
-		ifNotNil: [ self updateLayoutForEmail: email ]
+	(folderOrEmail isNotNil and: [ folderOrEmail isEmail ])
+		ifTrue: [ self updateLayoutForEmail: folderOrEmail ]
+		ifFalse: [ self updateLayoutForNoEmail ]
 ]
 
 { #category : 'updating' }
