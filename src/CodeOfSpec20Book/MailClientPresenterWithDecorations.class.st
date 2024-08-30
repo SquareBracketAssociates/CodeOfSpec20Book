@@ -1,3 +1,6 @@
+"
+I specialize my superclass with a menubar, toolbar, context menu, and status bar.
+"
 Class {
 	#name : 'MailClientPresenterWithDecorations',
 	#superclass : 'MailClientPresenter',
