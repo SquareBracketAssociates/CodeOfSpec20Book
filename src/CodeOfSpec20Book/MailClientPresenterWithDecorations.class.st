@@ -30,23 +30,6 @@ MailClientPresenterWithDecorations >> accountMenu [
 		yourself
 ]
 
-{ #category : 'nil' }
-MailClientPresenterWithDecorations >> connectPresenters [
-
-	account whenSelectionChangedDo: [
-		| selectedEmail |
-		editedEmail := nil.
-		account hasSelectedEmail
-			ifTrue: [
-				selectedEmail := account selectedItem.
-				selectedEmail isDraft
-					ifTrue: [ editedEmail := selectedEmail].
-				reader updateLayoutForEmail: selectedEmail ]
-			ifFalse: [ reader updateLayoutForNoEmail ].
-		self updateToolBarButtons.
-		statusBar popMessage ]
-]
-
 { #category : 'actions' }
 MailClientPresenterWithDecorations >> deleteMail [
 
@@ -61,6 +44,14 @@ MailClientPresenterWithDecorations >> fetchMail [
 	account fetchMail.
 	self modelChanged.
 	statusBar pushMessage: 'Mail fetched.'
+]
+
+{ #category : 'private' }
+MailClientPresenterWithDecorations >> folderOrEmailSelectionChanged [
+
+	super folderOrEmailSelectionChanged.
+	self updateToolBarButtons.
+	statusBar popMessage
 ]
 
 { #category : 'private' }
