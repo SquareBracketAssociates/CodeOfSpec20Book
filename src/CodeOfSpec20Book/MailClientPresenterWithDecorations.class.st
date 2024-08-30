@@ -50,14 +50,6 @@ MailClientPresenterWithDecorations >> fetchMail [
 ]
 
 { #category : 'private' }
-MailClientPresenterWithDecorations >> folderOrEmailSelectionChanged [
-
-	super folderOrEmailSelectionChanged.
-	self updateToolBarButtons.
-	statusBar popMessage
-]
-
-{ #category : 'private' }
 MailClientPresenterWithDecorations >> formatMenu [
 
 	^ self newMenu
@@ -223,6 +215,14 @@ MailClientPresenterWithDecorations >> sendMail [
 	editedEmail := nil.
 	self modelChanged.
 	statusBar pushMessage: 'Mail sent.'
+]
+
+{ #category : 'private' }
+MailClientPresenterWithDecorations >> updateAfterSelectionChangedTo: selectedFolderOrEmail [
+
+	super updateAfterSelectionChangedTo: selectedFolderOrEmail.
+	self updateToolBarButtons.
+	statusBar popMessage
 ]
 
 { #category : 'private' }

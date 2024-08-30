@@ -18,7 +18,11 @@ Class {
 { #category : 'initialization' }
 MailClientPresenter >> connectPresenters [
 
-	account whenSelectionChangedDo: [ self folderOrEmailSelectionChanged ]
+	account whenSelectionChangedDo: [ :selection |
+		| selectedFolderOrEmail |
+		selectedFolderOrEmail := selection selectedItem.
+		reader read: selectedFolderOrEmail.
+		self updateAfterSelectionChangedTo: selectedFolderOrEmail ]
 ]
 
 { #category : 'layout' }
@@ -33,17 +37,6 @@ MailClientPresenter >> defaultLayout [
 	^ SpBoxLayout newTopToBottom
 		add: content expand: true fill: true padding: 5;
 		yourself
-]
-
-{ #category : 'private' }
-MailClientPresenter >> folderOrEmailSelectionChanged [
-
-	| selectedFolderOrEmail |
-	selectedFolderOrEmail := account selectedItem.
-	reader read: selectedFolderOrEmail.
-	editedEmail := (self isDraftEmail: selectedFolderOrEmail)
-		ifTrue: [ selectedFolderOrEmail ]
-		ifFalse: [ nil ]
 ]
 
 { #category : 'initialization' }
@@ -65,4 +58,12 @@ MailClientPresenter >> initializeWindow: aWindowPresenter [
 MailClientPresenter >> isDraftEmail: folderOrEmailOrNil [
 
 	^ folderOrEmailOrNil isNotNil and: [ folderOrEmailOrNil isEmail and: [ folderOrEmailOrNil isDraft ] ]
+]
+
+{ #category : 'private' }
+MailClientPresenter >> updateAfterSelectionChangedTo: selectedFolderOrEmail [
+
+	editedEmail := (self isDraftEmail: selectedFolderOrEmail)
+		ifTrue: [ selectedFolderOrEmail ]
+		ifFalse: [ nil ]
 ]
