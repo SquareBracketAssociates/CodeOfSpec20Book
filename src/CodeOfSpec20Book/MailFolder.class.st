@@ -47,6 +47,12 @@ MailFolder >> initialize [
 	emails := OrderedCollection new
 ]
 
+{ #category : 'testing' }
+MailFolder >> isEmail [
+
+	^ false
+]
+
 { #category : 'private - accessing' }
 MailFolder >> name: aString [
 

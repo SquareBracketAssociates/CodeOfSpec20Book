@@ -85,6 +85,12 @@ Email >> isDraft [
 ]
 
 { #category : 'testing' }
+Email >> isEmail [
+
+	^ true
+]
+
+{ #category : 'testing' }
 Email >> isReceived [
 
 	^ status = #received
