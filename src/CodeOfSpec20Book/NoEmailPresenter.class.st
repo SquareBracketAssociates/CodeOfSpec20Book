@@ -1,3 +1,6 @@
+"
+I display a message to indicate that no email has been selected.
+"
 Class {
 	#name : 'NoEmailPresenter',
 	#superclass : 'SpPresenter',

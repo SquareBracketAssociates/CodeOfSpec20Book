@@ -1,3 +1,6 @@
+"
+I represent a mail account that manages `Email`s.
+"
 Class {
 	#name : 'MailAccount',
 	#superclass : 'Model',

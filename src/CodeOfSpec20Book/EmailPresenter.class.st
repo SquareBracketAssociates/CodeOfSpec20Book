@@ -1,3 +1,6 @@
+"
+I display fields for all aspects of an `Email`.
+"
 Class {
 	#name : 'EmailPresenter',
 	#superclass : 'SpPresenterWithModel',

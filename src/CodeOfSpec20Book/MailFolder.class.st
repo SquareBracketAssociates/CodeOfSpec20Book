@@ -1,3 +1,6 @@
+"
+I represent a named folder in which `Email`s can be stored.
+"
 Class {
 	#name : 'MailFolder',
 	#superclass : 'Object',

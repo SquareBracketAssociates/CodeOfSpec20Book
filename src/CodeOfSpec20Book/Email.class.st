@@ -1,3 +1,6 @@
+"
+I represent a email with `from` and `to` addresses, a `subject`, and a `body`. My instances have a state: received, draft, or sent.
+"
 Class {
 	#name : 'Email',
 	#superclass : 'Object',

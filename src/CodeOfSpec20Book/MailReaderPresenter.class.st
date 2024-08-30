@@ -1,3 +1,6 @@
+"
+I display different layouts depending on whether I have a draft email, another email, or no email.
+"
 Class {
 	#name : 'MailReaderPresenter',
 	#superclass : 'SpPresenter',
