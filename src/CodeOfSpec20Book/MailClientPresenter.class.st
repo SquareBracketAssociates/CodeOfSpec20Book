@@ -38,13 +38,14 @@ MailClientPresenter >> connectPresenters [
 
 	account whenSelectionChangedDo: [
 		| selectedEmail |
+		editedEmail := nil.
 		account hasSelectedEmail
 			ifTrue: [
 				selectedEmail := account selectedItem.
 				selectedEmail isDraft
 					ifTrue: [ editedEmail := selectedEmail].
 				reader updateLayoutForEmail: selectedEmail ]
-		ifFalse: [ reader updateLayoutForNoEmail ].
+			ifFalse: [ reader updateLayoutForNoEmail ].
 		self updateToolBarButtons.
 		statusBar popMessage ]
 ]
@@ -252,10 +253,10 @@ MailClientPresenter >> sendMail [
 { #category : 'private' }
 MailClientPresenter >> updateToolBarButtons [
 
-	| hasSelectedEmail |
-	hasSelectedEmail := self hasDraft or: [ account hasSelectedEmail].
-	saveButton enabled: hasSelectedEmail.
-	sendButton enabled: hasSelectedEmail
+	| hasSelectedDraft |
+	hasSelectedDraft := self hasDraft.
+	saveButton enabled: hasSelectedDraft.
+	sendButton enabled: hasSelectedDraft
 ]
 
 { #category : 'private' }
