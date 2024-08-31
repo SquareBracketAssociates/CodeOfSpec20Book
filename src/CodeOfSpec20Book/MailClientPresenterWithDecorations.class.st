@@ -83,8 +83,7 @@ MailClientPresenterWithDecorations >> initializeMenuBar [
 				name: 'Format';
 				subMenu: self formatMenu;
 				yourself ];
-		yourself.
-	"menuBar halt addKeybindingsTo: self"
+		yourself
 	
 ]
 
