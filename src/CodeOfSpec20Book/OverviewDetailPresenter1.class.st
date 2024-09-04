@@ -1,3 +1,6 @@
+"
+I am the basic overview-detail presenter illustrated in the book.
+"
 Class {
 	#name : 'OverviewDetailPresenter1',
 	#superclass : 'SpPresenter',

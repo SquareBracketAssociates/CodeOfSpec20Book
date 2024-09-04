@@ -15,6 +15,12 @@ Class {
 	#tag : 'Chapter12-Presenters'
 }
 
+{ #category : 'examples' }
+MailClientPresenter class >> example [
+
+	(self on: MailAccount new) open
+]
+
 { #category : 'initialization' }
 MailClientPresenter >> connectPresenters [
 

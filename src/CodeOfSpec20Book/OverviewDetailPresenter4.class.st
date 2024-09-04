@@ -1,3 +1,6 @@
+"
+I am the overview-detail presenter with an action after setting the text.
+"
 Class {
 	#name : 'OverviewDetailPresenter4',
 	#superclass : 'SpPresenter',

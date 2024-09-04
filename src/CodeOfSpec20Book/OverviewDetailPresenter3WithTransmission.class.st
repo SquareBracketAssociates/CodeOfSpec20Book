@@ -1,3 +1,6 @@
+"
+I am the overview-detail presenter with a transmission for logging.
+"
 Class {
 	#name : 'OverviewDetailPresenter3WithTransmission',
 	#superclass : 'SpPresenter',

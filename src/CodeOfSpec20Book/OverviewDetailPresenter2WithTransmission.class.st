@@ -1,3 +1,6 @@
+"
+I am the overview-detail presenter with a transformation for the text.
+"
 Class {
 	#name : 'OverviewDetailPresenter2WithTransmission',
 	#superclass : 'SpPresenter',

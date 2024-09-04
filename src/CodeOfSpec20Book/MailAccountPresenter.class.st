@@ -26,6 +26,12 @@ MailAccountPresenter >> defaultLayout [
 		yourself.
 ]
 
+{ #category : 'ports' }
+MailAccountPresenter >> defaultOutputPort [
+
+	^ foldersAndEmails defaultOutputPort
+]
+
 { #category : 'actions' }
 MailAccountPresenter >> deleteMail [
 

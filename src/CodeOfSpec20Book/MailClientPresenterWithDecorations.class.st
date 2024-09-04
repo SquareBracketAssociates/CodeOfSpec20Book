@@ -16,6 +16,12 @@ Class {
 	#tag : 'Chapter13'
 }
 
+{ #category : 'examples' }
+MailClientPresenterWithDecorations class >> example [
+
+	(self on: MailAccount new) open
+]
+
 { #category : 'private' }
 MailClientPresenterWithDecorations >> accountMenu [
 

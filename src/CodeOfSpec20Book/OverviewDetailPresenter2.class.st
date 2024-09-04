@@ -1,3 +1,6 @@
+"
+I am the overview-detail presenter with a computed value for the text.
+"
 Class {
 	#name : 'OverviewDetailPresenter2',
 	#superclass : 'SpPresenter',
