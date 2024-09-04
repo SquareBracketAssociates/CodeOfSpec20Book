@@ -8,9 +8,9 @@ Class {
 		'emails',
 		'name'
 	],
-	#category : 'CodeOfSpec20Book-Chapter12-Models',
+	#category : 'CodeOfSpec20Book-Chapter12',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter12-Models'
+	#tag : 'Chapter12'
 }
 
 { #category : 'instance creation' }

@@ -10,9 +10,9 @@ Class {
 		'reader',
 		'editedEmail'
 	],
-	#category : 'CodeOfSpec20Book-Chapter12-Presenters',
+	#category : 'CodeOfSpec20Book-Chapter12',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter12-Presenters'
+	#tag : 'Chapter12'
 }
 
 { #category : 'examples' }
