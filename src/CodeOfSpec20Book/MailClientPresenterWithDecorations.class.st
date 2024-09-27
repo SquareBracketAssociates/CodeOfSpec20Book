@@ -146,8 +146,8 @@ MailClientPresenterWithDecorations >> initializeWindow: aWindowPresenter [
 	aWindowPresenter
 		menu: menuBar;
 		toolbar: toolBar;
-		statusBar: statusBar;
-		whenOpenedDo: [ menuBar addKeybindingsTo: aWindowPresenter ]
+		statusBar: statusBar.
+	menuBar addKeybindingsTo: aWindowPresenter
 ]
 
 { #category : 'private' }
