@@ -111,11 +111,11 @@ MailClientPresenterWithCommands >> initializeMenuBar [
 MailClientPresenterWithCommands >> initializeToolBar [
 	
 	toolBar := self newToolbar.
-	toolBar fillWith: self rootCommandsGroup / 'ToolBar'
+	self updateToolBarButtons
 ]
 
 { #category : 'private' }
 MailClientPresenterWithCommands >> updateToolBarButtons [
 
-	toolBar items
+	toolBar fillWith: self rootCommandsGroup / 'ToolBar'
 ]
