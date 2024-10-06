@@ -89,7 +89,9 @@ MailClientPresenterWithCommands class >> buildViewMenuWith: presenter [
 { #category : 'private' }
 MailClientPresenterWithCommands >> accountMenu [
 
-	^ (self rootCommandsGroup / 'AccountMenu') asMenuPresenter
+	^ self newMenu
+		fillWith: (self rootCommandsGroup / 'AccountMenu');
+		yourself
 ]
 
 { #category : 'testing' }
@@ -101,7 +103,8 @@ MailClientPresenterWithCommands >> hasSelectedEmail [
 { #category : 'nil' }
 MailClientPresenterWithCommands >> initializeMenuBar [
 
-	menuBar := (self rootCommandsGroup / 'MenuBar') asMenuBarPresenter
+	menuBar := self newMenuBar.
+	menuBar fillWith: self rootCommandsGroup / 'MenuBar'
 ]
 
 { #category : 'initialization' }
