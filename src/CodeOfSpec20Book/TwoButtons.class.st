@@ -16,7 +16,10 @@ Class {
 { #category : 'layout' }
 TwoButtons >> defaultLayout [
 
-	^ self class buttonRow
+	^ SpBoxLayout newLeftToRight
+		add: #button1;
+		add: #button2;
+		yourself
 ]
 
 { #category : 'initialization' }
