@@ -94,12 +94,6 @@ MailClientPresenterWithCommands >> accountMenu [
 		yourself
 ]
 
-{ #category : 'testing' }
-MailClientPresenterWithCommands >> hasSelectedEmail [
-
-	^ account hasSelectedEmail
-]
-
 { #category : 'nil' }
 MailClientPresenterWithCommands >> initializeMenuBar [
 

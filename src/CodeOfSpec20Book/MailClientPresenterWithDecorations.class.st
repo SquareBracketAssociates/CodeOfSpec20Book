@@ -29,12 +29,12 @@ MailClientPresenterWithDecorations >> accountMenu [
 		addItem: [ :item |
 			item
 				name: 'Delete';
-				enabled: [ account hasSelectedEmail ];
+				enabled: [ self hasSelectedEmail ];
 				action: [ self deleteMail ] ];
 		addItem: [ :item |
 			item
 				name: 'Send';
-				enabled: [ account hasSelectedEmail and: [ account selectedItem isDraft] ];
+				enabled: [ self hasSelectedEmail and: [ account selectedItem isDraft] ];
 				action: [ self sendMail ] ];
 		yourself
 ]
@@ -68,6 +68,12 @@ MailClientPresenterWithDecorations >> formatMenu [
 MailClientPresenterWithDecorations >> hasDraft [
 
 	^ editedEmail isNotNil
+]
+
+{ #category : 'testing' }
+MailClientPresenterWithDecorations >> hasSelectedEmail [
+
+	^ account hasSelectedEmail
 ]
 
 { #category : 'initialization' }
