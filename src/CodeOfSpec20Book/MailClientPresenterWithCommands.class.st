@@ -23,9 +23,9 @@ MailClientPresenterWithCommands class >> buildAccountMenuWith: presenter [
 MailClientPresenterWithCommands class >> buildCommandsGroupWith: presenter forRoot: rootCommandGroup [
 
 	rootCommandGroup
+		register: (self buildAccountMenuWith: presenter);
 		register: (self buildMenuBarGroupWith: presenter);
-		register: (self buildToolBarGroupWith: presenter);
-		register: (self buildAccountMenuWith: presenter)
+		register: (self buildToolBarGroupWith: presenter)
 ]
 
 { #category : 'commands' }
