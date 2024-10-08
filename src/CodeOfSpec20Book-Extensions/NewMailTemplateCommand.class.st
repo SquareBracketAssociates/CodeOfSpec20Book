@@ -7,9 +7,9 @@ Class {
 	#instVars : [
 		'bodyTemplate'
 	],
-	#category : 'CodeOfSpec20Book-Extensions-Chapter19',
+	#category : 'CodeOfSpec20Book-Extensions-Chapter18',
 	#package : 'CodeOfSpec20Book-Extensions',
-	#tag : 'Chapter19'
+	#tag : 'Chapter18'
 }
 
 { #category : 'accessing' }

@@ -4,9 +4,9 @@ My superclasses uses traditional means for menubars, toolsbars and context menus
 Class {
 	#name : 'MailClientPresenterWithCommands',
 	#superclass : 'MailClientPresenterWithDecorations',
-	#category : 'CodeOfSpec20Book-Chapter19',
+	#category : 'CodeOfSpec20Book-Chapter18',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter19'
+	#tag : 'Chapter18'
 }
 
 { #category : 'commands' }
