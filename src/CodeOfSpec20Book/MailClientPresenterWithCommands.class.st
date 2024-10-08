@@ -94,7 +94,7 @@ MailClientPresenterWithCommands >> accountMenu [
 		yourself
 ]
 
-{ #category : 'nil' }
+{ #category : 'initialization' }
 MailClientPresenterWithCommands >> initializeMenuBar [
 
 	menuBar := self newMenuBar.
@@ -103,7 +103,7 @@ MailClientPresenterWithCommands >> initializeMenuBar [
 
 { #category : 'initialization' }
 MailClientPresenterWithCommands >> initializeToolBar [
-	
+
 	toolBar := self newToolbar.
 	self updateToolBarButtons
 ]
