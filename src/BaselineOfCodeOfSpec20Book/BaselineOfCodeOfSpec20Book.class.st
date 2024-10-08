@@ -11,5 +11,6 @@ BaselineOfCodeOfSpec20Book >> baseline: spec [
 	spec
 		for: #common
 		do: [ spec
-				package: 'CodeOfSpec20Book']
+				package: 'CodeOfSpec20Book';
+				package: 'CodeOfSpec20Book-Extensions']
 ]
