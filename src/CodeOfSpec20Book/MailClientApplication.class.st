@@ -20,7 +20,12 @@ MailClientApplication >> styleSheet [
 	| customStyleSheet |
 	customStyleSheet := SpStyleVariableSTONReader fromString:
 		'.application [
-			.fieldLabel [ Font { #bold: false } ]
+			.fieldLabel [ Font { #size: 12 }, Draw { #color: #blue } ],
+			.field [ Draw { #backgroundColor: #lightYellow } ],
+			.draftMail [
+				.field [ Draw { #backgroundColor: #pink } ]
+				],
+			.bodyField [ Container { #borderWidth: 1, #borderColor: #black } ]
 		]'.
-	^ SpStyle defaultStyleSheet , customStyleSheet
+	^ super styleSheet , customStyleSheet
 ]
