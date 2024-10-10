@@ -11,9 +11,9 @@ Class {
 	#instVars : [
 		'morphPresenter'
 	],
-	#category : 'CodeOfSpec20Book-Chapter15',
+	#category : 'CodeOfSpec20Book-Chapter16',
 	#package : 'CodeOfSpec20Book',
-	#tag : 'Chapter15'
+	#tag : 'Chapter16'
 }
 
 { #category : 'instance creation' }
