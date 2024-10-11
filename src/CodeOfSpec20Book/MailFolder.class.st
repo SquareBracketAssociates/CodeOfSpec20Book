@@ -44,7 +44,8 @@ MailFolder >> emails: aCollection [
 MailFolder >> initialize [
 
 	super initialize.
-	emails := OrderedCollection new
+	emails := OrderedCollection new.
+	name := 'New folder'
 ]
 
 { #category : 'testing' }
