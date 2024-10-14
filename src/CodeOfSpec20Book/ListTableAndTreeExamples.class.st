@@ -157,7 +157,7 @@ ListTableAndTreeExamples class >> exampleListsWithDragAndDrop [
 
 	list2 := SpListPresenter new.
 	list2 dropEnabled: true;
-		wantsDrop: [ :transfer | transfer passenger allSatisfy: #isString ];
+		wantsDrop: [ :transfer | transfer passenger allSatisfy: [:each | each isString ] ];
 		acceptDrop: [ :transfer | list2 items: list2 items , transfer passenger ].
 
 	SpPresenter new
