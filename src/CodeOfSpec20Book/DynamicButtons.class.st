@@ -19,7 +19,7 @@ DynamicButtons >> addToLayout [
 
 	| randomButtonName newButton |
 	removeButton enable.
-	randomButtonName := 'Random number: ', (Random new nextInteger: 1000) asString.
+	randomButtonName := 'Random number: ', 1000 atRandom asString.
 	newButton := self newButton
 		label: randomButtonName;
 		icon: (self iconNamed: #smallObjects);
