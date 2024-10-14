@@ -17,7 +17,7 @@ Class {
 PanedLayoutExample >> defaultLayout [
 
 	^ SpPanedLayout newLeftToRight
-		positionOfSlider: 70 percent;
+		positionOfSlider: 0.7;
 		add: #leftList withConstraints: [ :constraints | constraints beNotShrinkable ];
 		add: #rightList;
 		yourself
