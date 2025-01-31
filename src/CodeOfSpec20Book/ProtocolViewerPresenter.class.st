@@ -82,12 +82,6 @@ ProtocolViewerPresenter >> initializePresenters [
 		add: events
 ]
 
-{ #category : 'initialization' }
-ProtocolViewerPresenter >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter title: 'Protocol viewer'
-]
-
 { #category : 'private' }
 ProtocolViewerPresenter >> methodsIn: class for: protocol [
 
@@ -120,4 +114,10 @@ ProtocolViewerPresenter >> whenSelectionInClassChanged: aBlock [
 ProtocolViewerPresenter >> whenSelectionInEventChanged: aBlock [
 
 	events whenSelectionChangedDo: aBlock
+]
+
+{ #category : 'accessing' }
+ProtocolViewerPresenter >> windowTitle [
+
+	^ 'Protocol viewer'
 ]

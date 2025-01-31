@@ -57,8 +57,8 @@ ProtocolCodeBrowserPresenter >> initializePresenters [
 		add: text
 ]
 
-{ #category : 'initialization' }
-ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
+{ #category : 'accessing' }
+ProtocolCodeBrowserPresenter >> windowTitle [
 
-	aWindowPresenter title: 'Spec Protocol Browser'
+	^ 'Spec Protocol Browser'
 ]

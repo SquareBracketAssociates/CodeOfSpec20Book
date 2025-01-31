@@ -21,6 +21,12 @@ Class {
 	#tag : 'Chapter05'
 }
 
+{ #category : 'accessing' }
+ColorChooser class >> defaultPreferredExtent [
+
+	^ 400@294
+]
+
 { #category : 'test support' }
 ColorChooser >> boxColor [
 
@@ -135,14 +141,6 @@ ColorChooser >> initializePresenters [
 	colorDetails := self newText
 ]
 
-{ #category : 'initialization' }
-ColorChooser >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter
-		title: 'Color Chooser';
-		initialExtent: 400@294
-]
-
 { #category : 'private' }
 ColorChooser >> lighter [
 
@@ -174,4 +172,10 @@ ColorChooser >> updatePresenter [
 	initialColor := currentColor.
 	colorList items: self defaultColors.
 	self updateColor: initialColor
+]
+
+{ #category : 'accessing' }
+ColorChooser >> windowTitle [
+
+	^ 'Color Chooser'
 ]

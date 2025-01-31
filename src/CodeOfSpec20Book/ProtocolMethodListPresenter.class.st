@@ -38,12 +38,6 @@ ProtocolMethodListPresenter >> initializePresenters [
 	self focusOrder add: methods
 ]
 
-{ #category : 'initialization' }
-ProtocolMethodListPresenter >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter title: 'Protocol widget'
-]
-
 { #category : 'api' }
 ProtocolMethodListPresenter >> items: aCollection [
 
@@ -72,4 +66,10 @@ ProtocolMethodListPresenter >> resetSelection [
 ProtocolMethodListPresenter >> whenSelectionChangedDo: aBlock [
 
 	methods whenSelectionChangedDo: aBlock
+]
+
+{ #category : 'accessing' }
+ProtocolMethodListPresenter >> windowTitle [
+
+	^ 'Protocol widget'
 ]

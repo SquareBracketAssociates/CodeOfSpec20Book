@@ -39,14 +39,14 @@ WidgetClassListPresenter >> initializePresenters [
 	self focusOrder add: list
 ]
 
-{ #category : 'initialization' }
-WidgetClassListPresenter >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter title: 'Widgets'
-]
-
 { #category : 'api' }
 WidgetClassListPresenter >> whenSelectionChangedDo: aBlock [
 
 	list whenSelectionChangedDo: aBlock
+]
+
+{ #category : 'accessing' }
+WidgetClassListPresenter >> windowTitle [
+
+	^ 'Widgets'
 ]

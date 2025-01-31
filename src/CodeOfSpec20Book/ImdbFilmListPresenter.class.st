@@ -26,6 +26,12 @@ Class {
 	#tag : 'Chapter03'
 }
 
+{ #category : 'accessing' }
+ImdbFilmListPresenter class >> defaultPreferredExtent [
+
+	^ 600@400
+]
+
 { #category : 'examples' }
 ImdbFilmListPresenter class >> example [
 
@@ -110,6 +116,7 @@ ImdbFilmListPresenter >> initializePresenters [
 ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 
 	| addButton toolbar |
+	super initializeWindow: aWindowPresenter.
 	addButton := self newToolbarButton
 			label: 'Add film' ;
 			icon: (self iconNamed: #smallAdd);
@@ -118,10 +125,7 @@ ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 	toolbar := self newToolbar
 		add: addButton;
 		yourself.
-	aWindowPresenter
-		title: 'Mini IMDB';
-		initialExtent: 600@400;
-		toolbar: toolbar
+	aWindowPresenter toolbar: toolbar
 ]
 
 { #category : 'layout' }
@@ -145,4 +149,10 @@ ImdbFilmListPresenter >> listOnlyLayout [
 ImdbFilmListPresenter >> updatePresenter [
 	
 	filmList items: ImdbFilm films
+]
+
+{ #category : 'accessing' }
+ImdbFilmListPresenter >> windowTitle [
+
+	^ 'Mini IMDB'
 ]

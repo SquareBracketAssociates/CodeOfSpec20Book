@@ -67,8 +67,8 @@ WindowExamplePresenter5 >> initializePresenters [
 	minusButton label: '-'
 ]
 
-{ #category : 'initialization' }
-WindowExamplePresenter5 >> initializeWindow: aWindowPresenter [
+{ #category : 'accessing' }
+WindowExamplePresenter5 >> windowTitle [
 
-  aWindowPresenter title: 'Click to grow or shrink.'
+	^ 'Click to grow or shrink.'
 ]

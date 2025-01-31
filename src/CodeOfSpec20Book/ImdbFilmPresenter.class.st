@@ -34,6 +34,12 @@ ImdbFilmPresenter >> defaultLayout [
 ]
 
 { #category : 'accessing' }
+ImdbFilmPresenter >> defaultPreferredExtent [
+
+	^ 400@250
+]
+
+{ #category : 'accessing' }
 ImdbFilmPresenter >> director [
 
 	^ directorText text
@@ -82,14 +88,6 @@ ImdbFilmPresenter >> initializePresenters [
 		yourself.
 ]
 
-{ #category : 'window' }
-ImdbFilmPresenter >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter
-		title: 'Film';
-		initialExtent: 400@250
-]
-
 { #category : 'accessing' }
 ImdbFilmPresenter >> name [
 
@@ -120,6 +118,12 @@ ImdbFilmPresenter >> setModel: aFilm [
 			nameText text: aFilm name.
 			directorText text: aFilm director.
 			yearNumber number: aFilm year ]
+]
+
+{ #category : 'accessing' }
+ImdbFilmPresenter >> windowTitle [
+
+	^ 'Film'
 ]
 
 { #category : 'accessing' }

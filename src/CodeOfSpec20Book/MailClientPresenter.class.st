@@ -15,6 +15,12 @@ Class {
 	#tag : 'Chapter12'
 }
 
+{ #category : 'accessing' }
+MailClientPresenter class >> defaultPreferredExtent [
+
+	^ 650@500
+]
+
 { #category : 'examples' }
 MailClientPresenter class >> example [
 
@@ -52,14 +58,6 @@ MailClientPresenter >> initializePresenters [
 	reader := MailReaderPresenter new
 ]
 
-{ #category : 'initialization' }
-MailClientPresenter >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter
-		title: 'Mail';
-		initialExtent: 650@500
-]
-
 { #category : 'private' }
 MailClientPresenter >> isDraftEmail: folderOrEmailOrNil [
 
@@ -72,4 +70,10 @@ MailClientPresenter >> updateAfterSelectionChangedTo: selectedFolderOrEmail [
 	editedEmail := (self isDraftEmail: selectedFolderOrEmail)
 		ifTrue: [ selectedFolderOrEmail ]
 		ifFalse: [ nil ]
+]
+
+{ #category : 'accessing' }
+MailClientPresenter >> windowTitle [
+
+	^ 'Mail'
 ]

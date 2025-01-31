@@ -12,6 +12,12 @@ Class {
 	#tag : 'Chapter02'
 }
 
+{ #category : 'accessing' }
+CustomerSatisfactionPresenter class >> defaultPreferredExtent [
+
+	^ 400@100
+]
+
 { #category : 'examples' }
 CustomerSatisfactionPresenter class >> example [
 
@@ -61,11 +67,8 @@ CustomerSatisfactionPresenter >> initializePresenters [
 		icon: (self iconNamed: #thumbsDown)
 ]
 
-{ #category : 'initialization' }
-CustomerSatisfactionPresenter >> initializeWindow: aWindowPresenter [
-	
-	super initializeWindow: aWindowPresenter.
-	aWindowPresenter
-		title: 'Customer Satisfaction Survey';
-		initialExtent:  400@100
+{ #category : 'accessing' }
+CustomerSatisfactionPresenter >> windowTitle [
+
+	^ 'Customer Satisfaction Survey'
 ]

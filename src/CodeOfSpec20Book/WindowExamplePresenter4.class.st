@@ -13,6 +13,12 @@ Class {
 	#tag : 'Chapter09'
 }
 
+{ #category : 'accessing' }
+WindowExamplePresenter4 class >> defaultPreferredExtent [
+
+	^ 80@100
+]
+
 { #category : 'examples' }
 WindowExamplePresenter4 class >> exampleOpen [
 
@@ -54,10 +60,4 @@ WindowExamplePresenter4 >> initializePresenters [
 	minusButton label: '-'.
 	plusButton action: [ self window resize: 500@200].
 	minusButton action: [ self window resize: 200@100]
-]
-
-{ #category : 'initialization' }
-WindowExamplePresenter4 >> initializeWindow: aWindowPresenter [
-
-	aWindowPresenter initialExtent: 80@100
 ]

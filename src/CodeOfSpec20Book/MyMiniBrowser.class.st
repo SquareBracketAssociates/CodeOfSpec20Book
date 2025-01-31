@@ -16,6 +16,12 @@ Class {
 	#tag : 'Chapter11'
 }
 
+{ #category : 'accessing' }
+MyMiniBrowser class >> defaultPreferredExtent [
+
+	^ 750@650
+]
+
 { #category : 'private' }
 MyMiniBrowser >> buttonAction [
 
@@ -87,10 +93,8 @@ MyMiniBrowser >> initializePresenters [
 	code beNotEditable
 ]
 
-{ #category : 'initialization' }
-MyMiniBrowser >> initializeWindow: aWindowPresenter [
+{ #category : 'accessing' }
+MyMiniBrowser >> windowTitle [
 
-	aWindowPresenter
-	title: 'My Mini Browser';
-	initialExtent: 750@650
+	^ 'My Mini Browser'
 ]

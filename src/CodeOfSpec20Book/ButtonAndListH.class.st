@@ -30,8 +30,8 @@ ButtonAndListH >> initializePresenters [
 	list items: (1 to: 10)
 ]
 
-{ #category : 'initialization' }
-ButtonAndListH >> initializeWindow: aWindowPresenter [
+{ #category : 'accessing' }
+ButtonAndListH >> windowTitle [
 
-	aWindowPresenter title: 'SuperWidget'
+	^ 'SuperWidget'
 ]
